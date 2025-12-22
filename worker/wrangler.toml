@@ -1,0 +1,12 @@
+name = "transcript-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Secrets (set with: npx wrangler secret put <NAME>)
+#
+# SCRAPECREATORS_API_KEY - API key for ScrapeCreators API
+
+# KV namespace for usage tracking (create with: npx wrangler kv:namespace create USAGE_STORE)
+# [[kv_namespaces]]
+# binding = "USAGE_STORE"
+# id = "your-kv-namespace-id"

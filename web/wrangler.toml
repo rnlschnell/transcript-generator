@@ -1,0 +1,8 @@
+name = "tiktok-downloader-web"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "./dist"
+
+# Session storage for auth (optional)
+# [[kv_namespaces]]
+# binding = "SESSION"
+# id = "your-kv-namespace-id"

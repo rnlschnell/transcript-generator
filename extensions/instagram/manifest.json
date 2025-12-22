@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "KlipGrab - Video Downloader for TikTok",
+  "description": "Save TikTok videos without watermarks. Fast, free HD downloads. No login required.",
+  "version": "1.0.0",
+  "homepage_url": "https://klipgrab.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "downloads",
+    "activeTab",
+    "storage",
+    "identity"
+  ],
+  "oauth2": {
+    "client_id": "600326666488-qff3c5vbit0s8b0tlntm4nlgr670er5j.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
+}

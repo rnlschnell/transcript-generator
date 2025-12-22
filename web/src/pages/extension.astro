@@ -1,0 +1,599 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Chrome Extension - KlipGrab" description="Download our free Chrome extension for one-click TikTok video downloads.">
+  <!-- Hero -->
+  <section class="extension-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span>Chrome Extension</span>
+          </div>
+
+          <h1>One-click downloads on TikTok</h1>
+
+          <p class="hero-desc">
+            Stop copying and pasting URLs. Our Chrome extension adds a download button directly to every TikTok video. Just click and save.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              Add to Chrome - Free
+            </a>
+            <a href="/download" class="btn btn-secondary">Use Web Tool Instead</a>
+          </div>
+
+          <p class="hero-note">Works on Chrome, Edge, Brave, and other Chromium browsers</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <div class="browser-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="browser-address">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>tiktok.com/@creator/video</span>
+              </div>
+            </div>
+            <div class="browser-content">
+              <div class="video-mockup">
+                <div class="video-sidebar">
+                  <div class="sidebar-btn"></div>
+                  <div class="sidebar-btn"></div>
+                  <div class="sidebar-btn"></div>
+                  <div class="sidebar-btn download-btn">
+                    <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20">
+                      <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z"/>
+                      <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="cursor">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M4 4l16 6.5L12 13l-2 8L4 4z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2>Everything you need</h2>
+        <p>Simple, fast, and reliable. Just the way you like it.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Instant Downloads</h3>
+          <p>Click once, download instantly. No waiting, no extra steps.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>No Watermarks</h3>
+          <p>Get clean, professional videos without the TikTok logo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Safe & Private</h3>
+          <p>No data collection. Videos download directly to your device.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7,10 12,15 17,10"/>
+              <line x1="12" x2="12" y1="15" y2="3"/>
+            </svg>
+          </div>
+          <h3>HD Quality</h3>
+          <p>Always get the highest resolution available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use -->
+  <section class="how-to-use">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How to use</span>
+        <h2>Get started in 3 steps</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Install the extension</h3>
+          <p>Click "Add to Chrome" and confirm the installation. It takes just a few seconds.</p>
+        </div>
+
+        <div class="step-connector">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Browse TikTok</h3>
+          <p>Go to TikTok.com and navigate to any video you want to save.</p>
+        </div>
+
+        <div class="step-connector">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Click & download</h3>
+          <p>Click the download button that appears on the video. Done!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Ready to start downloading?</h2>
+          <p>Get the extension now and save TikTok videos with a single click.</p>
+          <a href="#" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            Add to Chrome - Free
+          </a>
+        </div>
+        <div class="cta-stats">
+          <div class="cta-stat">
+            <span class="stat-value">10</span>
+            <span class="stat-label">Free downloads to start</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .extension-hero {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, var(--background-secondary) 0%, transparent 100%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-muted);
+    color: var(--cyan-600);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-desc {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-lg {
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .hero-note {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  /* Browser Frame */
+  .hero-visual {
+    position: relative;
+  }
+
+  .browser-frame {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border);
+  }
+
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--slate-100);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .browser-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .browser-dots span:first-child { background: #ff5f57; }
+  .browser-dots span:nth-child(2) { background: #ffbd2e; }
+  .browser-dots span:nth-child(3) { background: #28ca42; }
+
+  .browser-address {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    color: var(--slate-500);
+  }
+
+  .browser-address svg {
+    color: var(--success);
+  }
+
+  .browser-content {
+    position: relative;
+    aspect-ratio: 9/16;
+    max-height: 400px;
+    background: linear-gradient(135deg, var(--slate-800) 0%, var(--slate-900) 100%);
+  }
+
+  .video-mockup {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+
+  .video-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+  }
+
+  .sidebar-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+  }
+
+  .download-btn {
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    animation: pulseBtn 2s ease infinite;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  }
+
+  @keyframes pulseBtn {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(249, 115, 22, 0.6); }
+  }
+
+  .cursor {
+    position: absolute;
+    bottom: 25%;
+    right: 10%;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    animation: cursorMove 3s ease infinite;
+  }
+
+  @keyframes cursorMove {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, -10px); }
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--text-secondary);
+  }
+
+  /* Features */
+  .features {
+    padding: 6rem 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--background-secondary);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s ease;
+  }
+
+  .feature-card:hover {
+    background: white;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-muted);
+    border-radius: var(--radius-md);
+    margin: 0 auto 1rem;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+
+  .feature-card h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* How to Use */
+  .how-to-use {
+    padding: 6rem 0;
+    background: var(--background-secondary);
+  }
+
+  .steps-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    flex: 1;
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .step-num {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--slate-900);
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .step-card h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .step-connector {
+    color: var(--slate-300);
+    flex-shrink: 0;
+  }
+
+  .step-connector svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 6rem 0;
+  }
+
+  .cta-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    background: var(--slate-900);
+    border-radius: var(--radius-xl);
+    padding: 4rem;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-content p {
+    color: var(--slate-300);
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+  }
+
+  .cta-stats {
+    text-align: center;
+  }
+
+  .cta-stat .stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-stat .stat-label {
+    color: var(--slate-400);
+    font-size: 0.9375rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-visual {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      flex-direction: column;
+    }
+
+    .step-connector {
+      transform: rotate(90deg);
+    }
+
+    .cta-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .cta-content p {
+      max-width: 100%;
+    }
+  }
+</style>

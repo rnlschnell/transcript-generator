@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy - TikTok Downloader">
+  <article class="legal-page">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: December 2024</p>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          TikTok Downloader ("we", "our", or "us") is committed to protecting your privacy.
+          This Privacy Policy explains how we collect, use, and safeguard your information when
+          you use our website and Chrome extension.
+        </p>
+      </section>
+
+      <section>
+        <h2>Information We Collect</h2>
+
+        <h3>Account Information</h3>
+        <p>
+          When you sign in with Google, we receive your email address, name, and profile picture
+          from Google. This information is used to create and manage your account.
+        </p>
+
+        <h3>Usage Data</h3>
+        <p>
+          We track the number of downloads associated with your account or device to enforce
+          usage limits. We do not store the URLs of videos you download or the video content itself.
+        </p>
+
+        <h3>Device Identifiers</h3>
+        <p>
+          For users who haven't signed in, we generate a random device identifier stored locally
+          in your browser to track free trial usage. This identifier is not linked to any
+          personal information.
+        </p>
+      </section>
+
+      <section>
+        <h2>How We Use Your Information</h2>
+        <ul>
+          <li>To provide and maintain our service</li>
+          <li>To track usage and enforce download limits</li>
+          <li>To process payments through our payment provider (Lemon Squeezy)</li>
+          <li>To communicate with you about your account or subscription</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Data Storage</h2>
+        <p>
+          Your account data is stored securely on Cloudflare's infrastructure. We do not store
+          any video content - videos are downloaded directly from TikTok's servers to your device.
+        </p>
+      </section>
+
+      <section>
+        <h2>Third-Party Services</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+          <li><strong>Google Sign-In</strong> - For authentication</li>
+          <li><strong>Lemon Squeezy</strong> - For payment processing</li>
+          <li><strong>Cloudflare</strong> - For hosting and infrastructure</li>
+        </ul>
+        <p>
+          Each of these services has their own privacy policy governing how they handle your data.
+        </p>
+      </section>
+
+      <section>
+        <h2>Data Retention</h2>
+        <p>
+          We retain your account information for as long as your account is active. You can
+          request deletion of your account and associated data at any time by contacting us.
+        </p>
+      </section>
+
+      <section>
+        <h2>Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you</li>
+          <li>Request correction of inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Object to processing of your data</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Chrome Extension Permissions</h2>
+        <p>Our Chrome extension requires the following permissions:</p>
+        <ul>
+          <li><strong>downloads</strong> - To save videos to your device</li>
+          <li><strong>activeTab</strong> - To detect TikTok video pages</li>
+          <li><strong>storage</strong> - To store your preferences and usage data locally</li>
+          <li><strong>identity</strong> - To enable Google Sign-In</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. We will notify you of any
+          changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact Us</h2>
+        <p>
+          If you have any questions about this Privacy Policy, please contact us at
+          <a href="mailto:privacy@klipgrab.com">privacy@klipgrab.com</a>.
+        </p>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 4rem 0;
+  }
+
+  .legal-page .container {
+    max-width: 800px;
+  }
+
+  .legal-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .last-updated {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  section:first-of-type h2 {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  section h3 {
+    font-size: 1.125rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  section p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  section ul {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  section li {
+    margin-bottom: 0.5rem;
+  }
+
+  section a {
+    color: var(--primary);
+  }
+
+  section a:hover {
+    text-decoration: underline;
+  }
+</style>

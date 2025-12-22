@@ -1,0 +1,316 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloadForm from '../components/DownloadForm';
+---
+
+<Layout title="Download TikTok Videos - KlipGrab" description="Download TikTok videos without watermarks. Paste any TikTok link and save HD videos to your device.">
+  <section class="download-page">
+    <div class="container">
+      <!-- Download Card -->
+      <div class="download-card">
+        <div class="card-header">
+          <h1>Download TikTok Video</h1>
+          <p>Paste your TikTok link below to get started.</p>
+        </div>
+
+        <div class="form-wrapper">
+          <DownloadForm client:only="react" />
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="instructions-section">
+        <h2>How to get the video link</h2>
+
+        <div class="instructions-grid">
+          <div class="instruction-card">
+            <div class="instruction-icon">
+              <span>1</span>
+            </div>
+            <div class="instruction-content">
+              <h3>Open TikTok</h3>
+              <p>Open the TikTok app or website and find the video you want to save.</p>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-icon">
+              <span>2</span>
+            </div>
+            <div class="instruction-content">
+              <h3>Copy the link</h3>
+              <p>Tap the "Share" button, then tap "Copy Link" to copy the video URL.</p>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-icon">
+              <span>3</span>
+            </div>
+            <div class="instruction-content">
+              <h3>Paste & download</h3>
+              <p>Paste the link above and click the download button. Done!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supported Formats -->
+      <div class="formats-section">
+        <div class="formats-card">
+          <div class="formats-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div class="formats-content">
+            <h3>Supported link formats</h3>
+            <div class="formats-list">
+              <code>https://www.tiktok.com/@username/video/1234567890</code>
+              <code>https://vm.tiktok.com/ABC123</code>
+              <code>https://m.tiktok.com/v/1234567890</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extension Promo -->
+      <div class="extension-promo">
+        <div class="promo-content">
+          <span class="promo-badge">Tip</span>
+          <h3>Want faster downloads?</h3>
+          <p>Our Chrome extension adds a download button directly to TikTok. No more copying links.</p>
+        </div>
+        <a href="/extension" class="btn btn-dark">
+          Get Extension
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .download-page {
+    padding: 4rem 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .download-page .container {
+    max-width: 720px;
+  }
+
+  /* Download Card */
+  .download-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .card-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .card-header p {
+    color: var(--text-secondary);
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+  }
+
+  /* Instructions */
+  .instructions-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .instructions-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .instruction-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--background-secondary);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s ease;
+  }
+
+  .instruction-card:hover {
+    background: white;
+    box-shadow: var(--shadow-md);
+  }
+
+  .instruction-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--slate-900);
+    color: white;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .instruction-content h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .instruction-content p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Formats */
+  .formats-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .formats-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--background-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .formats-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-muted);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .formats-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--primary);
+  }
+
+  .formats-content h3 {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .formats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .formats-list code {
+    display: block;
+    background: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Extension Promo */
+  .extension-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--slate-50) 0%, var(--background-secondary) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .promo-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.25rem 0.625rem;
+    border-radius: 4px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .promo-content h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .promo-content p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .download-card {
+      padding: 1.5rem;
+    }
+
+    .instructions-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .instruction-card {
+      flex-direction: row;
+      text-align: left;
+      gap: 1rem;
+    }
+
+    .instruction-icon {
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .formats-card {
+      flex-direction: column;
+    }
+
+    .extension-promo {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
