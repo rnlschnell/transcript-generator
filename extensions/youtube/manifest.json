@@ -20,6 +20,7 @@
     "downloads",
     "activeTab",
     "tabs",
-    "clipboardWrite"
+    "clipboardWrite",
+    "storage"
   ]
 }

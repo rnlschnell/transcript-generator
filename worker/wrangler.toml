@@ -6,7 +6,9 @@ compatibility_date = "2024-01-01"
 #
 # SCRAPECREATORS_API_KEY - API key for ScrapeCreators API
 
-# KV namespace for usage tracking (create with: npx wrangler kv:namespace create USAGE_STORE)
-# [[kv_namespaces]]
-# binding = "USAGE_STORE"
-# id = "your-kv-namespace-id"
+# KV namespace for usage tracking
+# Create with: npx wrangler kv:namespace create USAGE_STORE
+# Then replace the id below with the output
+[[kv_namespaces]]
+binding = "USAGE_STORE"
+id = "3971eda58b2c45d28e8352f5142a4e18"

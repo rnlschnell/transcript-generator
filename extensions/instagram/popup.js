@@ -1,9 +1,42 @@
 // Configuration
 const WORKER_URL = 'https://transcript-worker.nlschnell0413.workers.dev';
+const FREE_LIMIT = 10;
 
 // State
 let currentTranscript = null;
 let currentMediaId = null;
+let deviceId = null;
+
+// Device ID functions - generates a unique ID per extension install
+async function getDeviceId() {
+  const result = await chrome.storage.local.get('deviceId');
+  if (result.deviceId) return result.deviceId;
+
+  // Generate new UUID v4
+  const newDeviceId = crypto.randomUUID();
+  await chrome.storage.local.set({ deviceId: newDeviceId });
+  return newDeviceId;
+}
+
+// Credit display functions (credits tracked server-side, cached locally for display)
+async function getRemainingCount() {
+  const result = await chrome.storage.local.get('remainingCount');
+  return result.remainingCount ?? FREE_LIMIT;
+}
+
+async function setRemainingCount(count) {
+  await chrome.storage.local.set({ remainingCount: count });
+}
+
+function updateRemainingDisplay(count) {
+  const countEl = document.getElementById('countValue');
+  const remainingEl = document.getElementById('remainingCount');
+  if (countEl) countEl.textContent = count;
+  if (remainingEl) {
+    remainingEl.classList.toggle('warning', count <= 3 && count > 0);
+    remainingEl.classList.toggle('exhausted', count <= 0);
+  }
+}
 
 // DOM elements
 const form = document.getElementById('transcriptForm');
@@ -130,17 +163,28 @@ async function getTranscript(url, button) {
     const response = await fetch(`${WORKER_URL}/api/instagram/transcript`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url }),
+      body: JSON.stringify({ url, deviceId }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
+      // Update display if server returns remaining count
+      if (typeof data.remaining === 'number') {
+        await setRemainingCount(data.remaining);
+        updateRemainingDisplay(data.remaining);
+      }
       throw new Error(data.error || 'Failed to fetch transcript');
     }
 
     if (!data.transcripts || data.transcripts.length === 0) {
       throw new Error('No transcript available for this post');
+    }
+
+    // Update remaining count from server response
+    if (typeof data.remaining === 'number') {
+      await setRemainingCount(data.remaining);
+      updateRemainingDisplay(data.remaining);
     }
 
     // Instagram returns an array of transcripts, use the first one
@@ -161,6 +205,13 @@ async function getTranscript(url, button) {
 
 // Initialize on popup open
 document.addEventListener('DOMContentLoaded', async () => {
+  // Initialize device ID
+  deviceId = await getDeviceId();
+
+  // Initialize credit display from cache
+  const count = await getRemainingCount();
+  updateRemainingDisplay(count);
+
   // Check current tab for Instagram reel/post
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs[0]?.url && isInstagramMediaPage(tabs[0].url)) {

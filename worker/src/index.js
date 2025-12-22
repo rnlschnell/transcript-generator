@@ -7,6 +7,58 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
+// Free tier limit
+const FREE_LIMIT = 10;
+
+// Validate UUID v4 device ID
+function isValidDeviceId(deviceId) {
+  if (!deviceId || typeof deviceId !== 'string') return false;
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  return uuidRegex.test(deviceId);
+}
+
+// Check device usage and return remaining credits
+async function checkUsage(env, deviceId) {
+  if (!env.USAGE_STORE) {
+    // KV not configured, allow unlimited (for development)
+    return { allowed: true, remaining: FREE_LIMIT };
+  }
+
+  const deviceKey = `device:${deviceId}`;
+  const deviceData = await env.USAGE_STORE.get(deviceKey, 'json');
+
+  if (!deviceData) {
+    // New device, full credits available
+    return { allowed: true, remaining: FREE_LIMIT };
+  }
+
+  const remaining = Math.max(0, FREE_LIMIT - deviceData.count);
+  return { allowed: remaining > 0, remaining };
+}
+
+// Increment usage count for a device
+async function incrementUsage(env, deviceId) {
+  if (!env.USAGE_STORE) return;
+
+  const deviceKey = `device:${deviceId}`;
+  const now = new Date().toISOString();
+  let deviceData = await env.USAGE_STORE.get(deviceKey, 'json');
+
+  if (!deviceData) {
+    deviceData = {
+      count: 0,
+      createdAt: now,
+      lastUsed: now,
+    };
+  }
+
+  deviceData.count += 1;
+  deviceData.lastUsed = now;
+
+  await env.USAGE_STORE.put(deviceKey, JSON.stringify(deviceData));
+  return FREE_LIMIT - deviceData.count;
+}
+
 // Create JSON response with CORS headers
 function jsonResponse(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -82,7 +134,7 @@ async function handleTikTokTranscript(request, env) {
     return jsonResponse({ error: 'Invalid JSON body' }, 400);
   }
 
-  const { url } = body;
+  const { url, deviceId } = body;
 
   if (!url) {
     return jsonResponse({ error: 'Missing "url" in request body' }, 400);
@@ -90,6 +142,20 @@ async function handleTikTokTranscript(request, env) {
 
   if (!isValidTikTokUrl(url)) {
     return jsonResponse({ error: 'Invalid URL. Please provide a TikTok video URL.' }, 400);
+  }
+
+  // Validate device ID
+  if (!isValidDeviceId(deviceId)) {
+    return jsonResponse({ error: 'Invalid or missing device ID' }, 400);
+  }
+
+  // Check usage limits
+  const usage = await checkUsage(env, deviceId);
+  if (!usage.allowed) {
+    return jsonResponse({
+      error: 'No credits remaining. You have used all 10 free transcripts.',
+      remaining: 0
+    }, 403);
   }
 
   if (!env.SCRAPECREATORS_API_KEY) {
@@ -111,7 +177,11 @@ async function handleTikTokTranscript(request, env) {
     }
 
     const data = await apiResponse.json();
-    return jsonResponse(data);
+
+    // Increment usage on success
+    const remaining = await incrementUsage(env, deviceId);
+
+    return jsonResponse({ ...data, remaining });
 
   } catch (err) {
     console.error('Worker error:', err);
@@ -128,7 +198,7 @@ async function handleYouTubeTranscript(request, env) {
     return jsonResponse({ error: 'Invalid JSON body' }, 400);
   }
 
-  const { url } = body;
+  const { url, deviceId } = body;
 
   if (!url) {
     return jsonResponse({ error: 'Missing "url" in request body' }, 400);
@@ -136,6 +206,20 @@ async function handleYouTubeTranscript(request, env) {
 
   if (!isValidYouTubeUrl(url)) {
     return jsonResponse({ error: 'Invalid URL. Please provide a YouTube video URL.' }, 400);
+  }
+
+  // Validate device ID
+  if (!isValidDeviceId(deviceId)) {
+    return jsonResponse({ error: 'Invalid or missing device ID' }, 400);
+  }
+
+  // Check usage limits
+  const usage = await checkUsage(env, deviceId);
+  if (!usage.allowed) {
+    return jsonResponse({
+      error: 'No credits remaining. You have used all 10 free transcripts.',
+      remaining: 0
+    }, 403);
   }
 
   if (!env.SCRAPECREATORS_API_KEY) {
@@ -157,7 +241,11 @@ async function handleYouTubeTranscript(request, env) {
     }
 
     const data = await apiResponse.json();
-    return jsonResponse(data);
+
+    // Increment usage on success
+    const remaining = await incrementUsage(env, deviceId);
+
+    return jsonResponse({ ...data, remaining });
 
   } catch (err) {
     console.error('Worker error:', err);
@@ -174,7 +262,7 @@ async function handleInstagramTranscript(request, env) {
     return jsonResponse({ error: 'Invalid JSON body' }, 400);
   }
 
-  const { url } = body;
+  const { url, deviceId } = body;
 
   if (!url) {
     return jsonResponse({ error: 'Missing "url" in request body' }, 400);
@@ -182,6 +270,20 @@ async function handleInstagramTranscript(request, env) {
 
   if (!isValidInstagramUrl(url)) {
     return jsonResponse({ error: 'Invalid URL. Please provide an Instagram reel or post URL.' }, 400);
+  }
+
+  // Validate device ID
+  if (!isValidDeviceId(deviceId)) {
+    return jsonResponse({ error: 'Invalid or missing device ID' }, 400);
+  }
+
+  // Check usage limits
+  const usage = await checkUsage(env, deviceId);
+  if (!usage.allowed) {
+    return jsonResponse({
+      error: 'No credits remaining. You have used all 10 free transcripts.',
+      remaining: 0
+    }, 403);
   }
 
   if (!env.SCRAPECREATORS_API_KEY) {
@@ -203,7 +305,11 @@ async function handleInstagramTranscript(request, env) {
     }
 
     const data = await apiResponse.json();
-    return jsonResponse(data);
+
+    // Increment usage on success
+    const remaining = await incrementUsage(env, deviceId);
+
+    return jsonResponse({ ...data, remaining });
 
   } catch (err) {
     console.error('Worker error:', err);
