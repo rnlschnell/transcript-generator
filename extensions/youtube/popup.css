@@ -781,22 +781,16 @@ input:focus-visible {
 .transcript-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 12px 14px;
   background: var(--background);
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.transcript-header h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
 .transcript-actions {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 6px;
 }
 
@@ -810,6 +804,7 @@ input:focus-visible {
 
 .transcript-text .cue {
   display: flex;
+  align-items: center;
   gap: 10px;
   padding: 6px 0;
   border-bottom: 1px solid var(--border-subtle);
@@ -821,6 +816,7 @@ input:focus-visible {
 
 .transcript-text .timestamp {
   flex-shrink: 0;
+  align-self: center;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', monospace;
   font-size: 0.6875rem;
   color: var(--primary);
