@@ -70,7 +70,7 @@ function isValidInstagramUrl(url) {
 const SCRAPECREATORS_ENDPOINTS = {
   tiktok: 'https://api.scrapecreators.com/v1/tiktok/video/transcript',
   youtube: 'https://api.scrapecreators.com/v1/youtube/video/transcript',
-  instagram: 'https://api.scrapecreators.com/v1/instagram/post/transcript',
+  instagram: 'https://api.scrapecreators.com/v2/instagram/media/transcript',
 };
 
 // Handle TikTok transcript request
