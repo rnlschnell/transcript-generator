@@ -77,3 +77,15 @@ npm run dev
 
 - Keep consistent color scheme and layout across web app and all extensions
 - Project name will be changed from "klipgrab" to a new name (TBD)
+
+## Upgrade/Purchase Flow
+
+When a user clicks "Upgrade" in the extension:
+1. **Sign in first** (Google OAuth)
+2. **Choose credits** - show pricing options with their current balance
+3. **Purchase**
+
+This flow was chosen because:
+- Simpler implementation (no state to preserve through OAuth redirect)
+- Can display existing credit balance on the pricing page
+- User clicking "Upgrade" has already signaled purchase intent
