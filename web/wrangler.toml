@@ -1,5 +1,6 @@
-name = "tiktok-downloader-web"
+name = "transcriptmagic-web"
 compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./dist"
 
 # Session storage for auth (optional)

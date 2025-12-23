@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Privacy Policy - TikTok Downloader">
+<Layout title="Privacy Policy - TranscriptMagic">
   <article class="legal-page">
     <div class="container">
       <h1>Privacy Policy</h1>
@@ -11,9 +11,9 @@ import Layout from '../layouts/Layout.astro';
       <section>
         <h2>Introduction</h2>
         <p>
-          TikTok Downloader ("we", "our", or "us") is committed to protecting your privacy.
+          TranscriptMagic ("we", "our", or "us") is committed to protecting your privacy.
           This Privacy Policy explains how we collect, use, and safeguard your information when
-          you use our website and Chrome extension.
+          you use our website and Chrome extensions.
         </p>
       </section>
 
@@ -28,8 +28,8 @@ import Layout from '../layouts/Layout.astro';
 
         <h3>Usage Data</h3>
         <p>
-          We track the number of downloads associated with your account or device to enforce
-          usage limits. We do not store the URLs of videos you download or the video content itself.
+          We track the number of transcripts generated with your account or device to enforce
+          usage limits. We do not store the URLs of videos you transcribe or the video content itself.
         </p>
 
         <h3>Device Identifiers</h3>
@@ -54,7 +54,7 @@ import Layout from '../layouts/Layout.astro';
         <h2>Data Storage</h2>
         <p>
           Your account data is stored securely on Cloudflare's infrastructure. We do not store
-          any video content - videos are downloaded directly from TikTok's servers to your device.
+          video content - transcripts are generated on-demand and delivered directly to your device.
         </p>
       </section>
 
@@ -92,12 +92,13 @@ import Layout from '../layouts/Layout.astro';
 
       <section>
         <h2>Chrome Extension Permissions</h2>
-        <p>Our Chrome extension requires the following permissions:</p>
+        <p>Our Chrome extensions require the following permissions:</p>
         <ul>
-          <li><strong>downloads</strong> - To save videos to your device</li>
-          <li><strong>activeTab</strong> - To detect TikTok video pages</li>
+          <li><strong>downloads</strong> - To save transcript files (SRT) to your device</li>
+          <li><strong>activeTab</strong> - To detect video pages on supported platforms</li>
+          <li><strong>tabs</strong> - To access the current tab URL for transcription</li>
           <li><strong>storage</strong> - To store your preferences and usage data locally</li>
-          <li><strong>identity</strong> - To enable Google Sign-In</li>
+          <li><strong>clipboardWrite</strong> - To copy transcripts to your clipboard</li>
         </ul>
       </section>
 
@@ -113,7 +114,7 @@ import Layout from '../layouts/Layout.astro';
         <h2>Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us at
-          <a href="mailto:privacy@klipgrab.com">privacy@klipgrab.com</a>.
+          <a href="mailto:privacy@transcriptmagic.com">privacy@transcriptmagic.com</a>.
         </p>
       </section>
     </div>

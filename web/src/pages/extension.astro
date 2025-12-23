@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Chrome Extension - KlipGrab" description="Download our free Chrome extension for one-click TikTok video downloads.">
+<Layout title="Chrome Extensions - TranscriptMagic" description="Get our free Chrome extensions for one-click transcripts on YouTube, TikTok, and Instagram.">
   <!-- Hero -->
   <section class="extension-hero">
     <div class="container">
@@ -12,26 +12,28 @@ import Layout from '../layouts/Layout.astro';
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
             </svg>
-            <span>Chrome Extension</span>
+            <span>Chrome Extensions</span>
           </div>
 
-          <h1>One-click downloads on TikTok</h1>
+          <h1>One-click transcripts</h1>
 
           <p class="hero-desc">
-            Stop copying and pasting URLs. Our Chrome extension adds a download button directly to every TikTok video. Just click and save.
+            Stop copying and pasting URLs. Our Chrome extensions add a transcript button directly to YouTube, TikTok, and Instagram. Just click and get the text.
           </p>
 
           <div class="hero-actions">
-            <a href="#" class="btn btn-primary btn-lg">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-              Add to Chrome - Free
+            <a href="#youtube" class="btn btn-primary btn-lg">
+              YouTube Extension
             </a>
-            <a href="/download" class="btn btn-secondary">Use Web Tool Instead</a>
+            <a href="#tiktok" class="btn btn-secondary">
+              TikTok Extension
+            </a>
+            <a href="#instagram" class="btn btn-secondary">
+              Instagram Extension
+            </a>
           </div>
 
-          <p class="hero-note">Works on Chrome, Edge, Brave, and other Chromium browsers</p>
+          <p class="hero-note">All extensions work on Chrome, Edge, Brave, and other Chromium browsers</p>
         </div>
 
         <div class="hero-visual">
@@ -46,7 +48,7 @@ import Layout from '../layouts/Layout.astro';
                 <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
                 </svg>
-                <span>tiktok.com/@creator/video</span>
+                <span>youtube.com/watch?v=...</span>
               </div>
             </div>
             <div class="browser-content">
@@ -57,8 +59,7 @@ import Layout from '../layouts/Layout.astro';
                   <div class="sidebar-btn"></div>
                   <div class="sidebar-btn download-btn">
                     <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20">
-                      <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z"/>
-                      <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z"/>
+                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/>
                     </svg>
                   </div>
                 </div>
@@ -91,19 +92,19 @@ import Layout from '../layouts/Layout.astro';
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
           </div>
-          <h3>Instant Downloads</h3>
-          <p>Click once, download instantly. No waiting, no extra steps.</p>
+          <h3>Instant Transcripts</h3>
+          <p>Click once, get the transcript instantly. No waiting, no extra steps.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
-              <path d="m9 12 2 2 4-4"/>
+              <polyline points="12,6 12,12 16,14"/>
             </svg>
           </div>
-          <h3>No Watermarks</h3>
-          <p>Get clean, professional videos without the TikTok logo.</p>
+          <h3>Timestamps Included</h3>
+          <p>Every transcript includes precise timestamps for easy navigation.</p>
         </div>
 
         <div class="feature-card">
@@ -113,7 +114,7 @@ import Layout from '../layouts/Layout.astro';
             </svg>
           </div>
           <h3>Safe & Private</h3>
-          <p>No data collection. Videos download directly to your device.</p>
+          <p>No data collection. Transcripts are generated securely.</p>
         </div>
 
         <div class="feature-card">
@@ -124,8 +125,8 @@ import Layout from '../layouts/Layout.astro';
               <line x1="12" x2="12" y1="15" y2="3"/>
             </svg>
           </div>
-          <h3>HD Quality</h3>
-          <p>Always get the highest resolution available.</p>
+          <h3>SRT Export</h3>
+          <p>Download transcripts as SRT files for video editing.</p>
         </div>
       </div>
     </div>
@@ -143,7 +144,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="step-card">
           <div class="step-num">1</div>
           <h3>Install the extension</h3>
-          <p>Click "Add to Chrome" and confirm the installation. It takes just a few seconds.</p>
+          <p>Choose the extension for your platform and add it to Chrome.</p>
         </div>
 
         <div class="step-connector">
@@ -155,8 +156,8 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="step-card">
           <div class="step-num">2</div>
-          <h3>Browse TikTok</h3>
-          <p>Go to TikTok.com and navigate to any video you want to save.</p>
+          <h3>Browse videos</h3>
+          <p>Go to YouTube, TikTok, or Instagram and find a video to transcribe.</p>
         </div>
 
         <div class="step-connector">
@@ -168,8 +169,8 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="step-card">
           <div class="step-num">3</div>
-          <h3>Click & download</h3>
-          <p>Click the download button that appears on the video. Done!</p>
+          <h3>Click & transcribe</h3>
+          <p>Click the extension icon and get your transcript instantly!</p>
         </div>
       </div>
     </div>
@@ -180,19 +181,19 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="cta-card">
         <div class="cta-content">
-          <h2>Ready to start downloading?</h2>
-          <p>Get the extension now and save TikTok videos with a single click.</p>
-          <a href="#" class="btn btn-primary btn-lg">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          <h2>Ready to start transcribing?</h2>
+          <p>Get the extensions now and transcribe videos with a single click.</p>
+          <a href="/download" class="btn btn-primary btn-lg">
+            Try It Free
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
             </svg>
-            Add to Chrome - Free
           </a>
         </div>
         <div class="cta-stats">
           <div class="cta-stat">
             <span class="stat-value">10</span>
-            <span class="stat-label">Free downloads to start</span>
+            <span class="stat-label">Free transcripts to start</span>
           </div>
         </div>
       </div>

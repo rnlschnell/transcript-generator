@@ -3,5 +3,6 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   integrations: [react()],
-  site: 'https://klipgrab.com',
+  output: 'static',
+  site: 'https://transcriptmagic.com',
 });

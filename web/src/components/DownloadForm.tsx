@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const WORKER_URL = 'https://api.klipgrab.com';
+const WORKER_URL = 'https://api.transcriptmagic.com';
 const GOOGLE_CLIENT_ID = '600326666488-qff3c5vbit0s8b0tlntm4nlgr670er5j.apps.googleusercontent.com';
 
 interface User {

@@ -1,5 +1,5 @@
 // Configuration
-const WORKER_URL = 'https://transcript-worker.nlschnell0413.workers.dev';
+const WORKER_URL = 'https://api.transcriptmagic.com';
 const FREE_LIMIT = 10;
 
 // State
@@ -42,6 +42,10 @@ function updateRemainingDisplay(count) {
 const form = document.getElementById('transcriptForm');
 const urlInput = document.getElementById('urlInput');
 const getTranscriptBtn = document.getElementById('getTranscriptBtn');
+const formAlt = document.getElementById('transcriptFormAlt');
+const urlInputAlt = document.getElementById('urlInputAlt');
+const getTranscriptBtnAlt = document.getElementById('getTranscriptBtnAlt');
+const urlFormSection = document.getElementById('urlFormSection');
 const status = document.getElementById('status');
 const currentVideoSection = document.getElementById('currentVideo');
 const getTranscriptCurrentBtn = document.getElementById('getTranscriptCurrentBtn');
@@ -52,6 +56,14 @@ const copyPlainBtn = document.getElementById('copyPlainBtn');
 const downloadSrtBtn = document.getElementById('downloadSrtBtn');
 
 let currentTabUrl = null;
+
+// Toggle button visibility based on input
+function setupInputToggle(input, button) {
+  input.addEventListener('input', () => {
+    const hasValue = input.value.trim().length > 0;
+    button.classList.toggle('hidden', !hasValue);
+  });
+}
 
 // Check if URL is a TikTok video page
 function isTikTokVideoPage(url) {
@@ -255,6 +267,8 @@ async function getTranscript(url, button) {
     showTranscriptResult(data.transcript, data.id);
     showStatus('Transcript loaded!', 'success');
     urlInput.value = '';
+    urlInputAlt.value = '';
+    getTranscriptBtn.classList.add('hidden');
 
   } catch (err) {
     console.error('Error:', err);
@@ -273,11 +287,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   const count = await getRemainingCount();
   updateRemainingDisplay(count);
 
+  // Setup input toggle for inline form (button only shows when URL entered)
+  setupInputToggle(urlInput, getTranscriptBtn);
+
   // Check current tab for TikTok video
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs[0]?.url && isTikTokVideoPage(tabs[0].url)) {
       currentTabUrl = tabs[0].url;
       currentVideoSection.classList.add('visible');
+      urlFormSection.classList.add('hidden');
+    } else {
+      urlFormSection.classList.add('visible');
     }
   });
 });
@@ -300,6 +320,19 @@ form.addEventListener('submit', (e) => {
   }
 
   getTranscript(url, getTranscriptBtn);
+});
+
+// Handle alternative form submission (when no video detected)
+formAlt.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const url = urlInputAlt.value.trim();
+
+  if (!isValidTikTokUrl(url)) {
+    showStatus('Please enter a valid TikTok video URL', 'error');
+    return;
+  }
+
+  getTranscript(url, getTranscriptBtnAlt);
 });
 
 // Copy with timestamps

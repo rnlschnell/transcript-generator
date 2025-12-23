@@ -29,10 +29,13 @@
 
     <!-- Remaining Credits Counter -->
     <div id="remainingCount" class="remaining-counter">
-      <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd"/>
-      </svg>
-      <span><span id="countValue">10</span> free transcripts left</span>
+      <span class="credits-left"><span id="countValue">10</span> credits left</span>
+      <button type="button" id="getMoreCreditsBtn" class="btn-get-credits">
+        Get More Credits
+        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
+        </svg>
+      </button>
     </div>
 
     <!-- Current Video Section -->
@@ -56,36 +59,64 @@
         </span>
       </button>
       <div class="divider">or paste a URL</div>
+      <form id="transcriptForm" class="form-section-inline">
+        <div class="input-group">
+          <input
+            type="url"
+            id="urlInput"
+            placeholder="Paste Instagram reel URL..."
+            autocomplete="off"
+          >
+          <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"/>
+            <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"/>
+          </svg>
+        </div>
+        <button type="submit" id="getTranscriptBtn" class="btn btn-primary hidden">
+          <span class="btn-text">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm2.25 8.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zm0 3a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd"/>
+            </svg>
+            Get Transcript
+          </span>
+          <span class="btn-loading">
+            <span class="spinner"></span>
+            Loading...
+          </span>
+        </button>
+      </form>
     </div>
 
-    <!-- URL Form Section -->
-    <form id="transcriptForm" class="form-section">
-      <div class="input-group">
-        <input
-          type="url"
-          id="urlInput"
-          placeholder="Paste Instagram reel URL..."
-          required
-          autocomplete="off"
-        >
-        <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"/>
-          <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"/>
-        </svg>
-      </div>
-      <button type="submit" id="getTranscriptBtn" class="btn btn-primary">
-        <span class="btn-text">
-          <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm2.25 8.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zm0 3a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd"/>
+    <!-- URL Form Section (shown when no video detected) -->
+    <div id="urlFormSection" class="url-form-section">
+      <div class="divider">paste a URL</div>
+      <form id="transcriptFormAlt" class="form-section">
+        <div class="input-group">
+          <input
+            type="url"
+            id="urlInputAlt"
+            placeholder="Paste Instagram reel URL..."
+            autocomplete="off"
+          >
+          <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"/>
+            <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"/>
           </svg>
-          Get Transcript
-        </span>
-        <span class="btn-loading">
-          <span class="spinner"></span>
-          Loading...
-        </span>
-      </button>
-    </form>
+        </div>
+        <button type="submit" id="getTranscriptBtnAlt" class="btn btn-primary">
+          <span class="btn-text">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm2.25 8.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5zm0 3a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" clip-rule="evenodd"/>
+            </svg>
+            Get Transcript
+          </span>
+          <span class="btn-loading">
+            <span class="spinner"></span>
+            Loading...
+          </span>
+        </button>
+      </form>
+    </div>
 
     <!-- Status Message -->
     <div id="status" class="status"></div>

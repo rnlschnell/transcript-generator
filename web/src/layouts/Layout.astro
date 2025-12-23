@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Download TikTok videos without watermarks. Fast, free, and crystal clear." } = Astro.props;
+const { title, description = "Get transcripts from YouTube, TikTok, and Instagram videos. Fast, accurate, AI-powered." } = Astro.props;
 ---
 
 <!doctype html>
@@ -39,13 +39,14 @@ const { title, description = "Download TikTok videos without watermarks. Fast, f
               <path d="M18 5L22 8L18 11V5Z" fill="#0f172a"/>
             </svg>
           </div>
-          <span class="logo-text">KlipGrab</span>
+          <span class="logo-text">TranscriptMagic</span>
         </a>
 
         <div class="nav-links">
           <a href="/">Home</a>
-          <a href="/download">Download</a>
+          <a href="/download">Transcribe</a>
           <a href="/pricing">Pricing</a>
+          <a href="/credits">Credits</a>
           <a href="/extension" class="nav-cta">
             <span class="cta-icon">
               <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
@@ -72,8 +73,9 @@ const { title, description = "Download TikTok videos without watermarks. Fast, f
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-content">
         <a href="/">Home</a>
-        <a href="/download">Download</a>
+        <a href="/download">Transcribe</a>
         <a href="/pricing">Pricing</a>
+        <a href="/credits">Credits</a>
         <a href="/extension" class="mobile-cta">Get Extension</a>
       </div>
     </div>
@@ -112,17 +114,18 @@ const { title, description = "Download TikTok videos without watermarks. Fast, f
                 <path d="M18 5L22 8L18 11V5Z" fill="#0f172a"/>
               </svg>
             </div>
-            <span>KlipGrab</span>
+            <span>TranscriptMagic</span>
           </a>
-          <p class="footer-tagline">Save TikTok videos in seconds.</p>
+          <p class="footer-tagline">AI-powered transcripts in seconds.</p>
         </div>
 
         <div class="footer-grid">
           <div class="footer-col">
             <h4>Product</h4>
-            <a href="/download">Online Downloader</a>
-            <a href="/extension">Chrome Extension</a>
+            <a href="/download">Transcribe Videos</a>
+            <a href="/extension">Chrome Extensions</a>
             <a href="/pricing">Pricing</a>
+            <a href="/credits">Buy Credits</a>
           </div>
           <div class="footer-col">
             <h4>Resources</h4>
@@ -138,7 +141,7 @@ const { title, description = "Download TikTok videos without watermarks. Fast, f
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} KlipGrab. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} TranscriptMagic. All rights reserved.</p>
           <div class="footer-social">
             <a href="#" aria-label="Twitter">
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
