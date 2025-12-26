@@ -96,15 +96,22 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
             </span>
             Get Extension
           </a>
-          <button class="nav-signin" id="navSignIn">
-            <svg viewBox="0 0 24 24" width="18" height="18">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
-            Sign In
-          </button>
+          <div class="nav-auth">
+            <button class="nav-signin" id="navSignIn">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Sign In
+            </button>
+            <div class="nav-user" id="navUser" style="display: none;">
+              <img class="nav-user-avatar" id="navUserAvatar" src="" alt="User" />
+              <span class="nav-user-name" id="navUserName"></span>
+              <button class="nav-signout" id="navSignOut">Sign Out</button>
+            </div>
+          </div>
         </div>
 
         <button class="nav-mobile-toggle" aria-label="Toggle menu">
@@ -131,15 +138,24 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
         </div>
         <a href="/credits">Pricing</a>
         <a href="/extension" class="mobile-cta">Get Extension</a>
-        <button class="mobile-signin" id="mobileSignIn">
-          <svg viewBox="0 0 24 24" width="18" height="18">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Sign In with Google
-        </button>
+        <div class="mobile-auth">
+          <button class="mobile-signin" id="mobileSignIn">
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Sign In with Google
+          </button>
+          <div class="mobile-user" id="mobileUser" style="display: none;">
+            <div class="mobile-user-info">
+              <img class="mobile-user-avatar" id="mobileUserAvatar" src="" alt="User" />
+              <span class="mobile-user-name" id="mobileUserName"></span>
+            </div>
+            <button class="mobile-signout" id="mobileSignOut">Sign Out</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -167,7 +183,89 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
       // Google Sign-In
       const GOOGLE_CLIENT_ID = '600326666488-o6ic9vkh9lrc6jgchimlp41eh5kn529e.apps.googleusercontent.com';
 
+      // Decode JWT token to get user info
+      function decodeJwt(token: string) {
+        try {
+          const base64Url = token.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+            '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+          ).join(''));
+          return JSON.parse(jsonPayload);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      // Update UI to show signed-in state
+      function updateUISignedIn(user: { name: string; picture: string; email: string }) {
+        // Desktop nav
+        const navSignIn = document.getElementById('navSignIn') as HTMLElement;
+        const navUser = document.getElementById('navUser') as HTMLElement;
+        const navUserAvatar = document.getElementById('navUserAvatar') as HTMLImageElement;
+        const navUserName = document.getElementById('navUserName') as HTMLElement;
+
+        if (navSignIn) navSignIn.style.display = 'none';
+        if (navUser) {
+          navUser.style.display = 'flex';
+          if (navUserAvatar) navUserAvatar.src = user.picture;
+          if (navUserName) navUserName.textContent = user.name.split(' ')[0];
+        }
+
+        // Mobile nav
+        const mobileSignIn = document.getElementById('mobileSignIn') as HTMLElement;
+        const mobileUser = document.getElementById('mobileUser') as HTMLElement;
+        const mobileUserAvatar = document.getElementById('mobileUserAvatar') as HTMLImageElement;
+        const mobileUserName = document.getElementById('mobileUserName') as HTMLElement;
+
+        if (mobileSignIn) mobileSignIn.style.display = 'none';
+        if (mobileUser) {
+          mobileUser.style.display = 'flex';
+          if (mobileUserAvatar) mobileUserAvatar.src = user.picture;
+          if (mobileUserName) mobileUserName.textContent = user.name;
+        }
+      }
+
+      // Update UI to show signed-out state
+      function updateUISignedOut() {
+        // Desktop nav
+        const navSignIn = document.getElementById('navSignIn') as HTMLElement;
+        const navUser = document.getElementById('navUser') as HTMLElement;
+
+        if (navSignIn) navSignIn.style.display = 'inline-flex';
+        if (navUser) navUser.style.display = 'none';
+
+        // Mobile nav
+        const mobileSignIn = document.getElementById('mobileSignIn') as HTMLElement;
+        const mobileUser = document.getElementById('mobileUser') as HTMLElement;
+
+        if (mobileSignIn) mobileSignIn.style.display = 'flex';
+        if (mobileUser) mobileUser.style.display = 'none';
+      }
+
+      // Handle sign out
+      function handleSignOut() {
+        localStorage.removeItem('user');
+        updateUISignedOut();
+
+        // Revoke Google session
+        if (typeof google !== 'undefined' && google.accounts) {
+          google.accounts.id.disableAutoSelect();
+        }
+      }
+
       function initGoogleSignIn() {
+        // Check if user is already signed in
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          try {
+            const user = JSON.parse(storedUser);
+            updateUISignedIn(user);
+          } catch (e) {
+            localStorage.removeItem('user');
+          }
+        }
+
         if (typeof google !== 'undefined' && google.accounts) {
           google.accounts.id.initialize({
             client_id: GOOGLE_CLIENT_ID,
@@ -177,9 +275,20 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
       }
 
       function handleGoogleCallback(response: any) {
-        // For now, just show a placeholder message
-        alert('Sign in successful! Account features coming soon.');
-        console.log('Google credential:', response.credential);
+        const payload = decodeJwt(response.credential);
+        if (payload) {
+          const user = {
+            name: payload.name,
+            email: payload.email,
+            picture: payload.picture,
+          };
+
+          // Store user info
+          localStorage.setItem('user', JSON.stringify(user));
+
+          // Update UI
+          updateUISignedIn(user);
+        }
       }
 
       function promptGoogleSignIn() {
@@ -196,6 +305,8 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
       // Attach click handlers
       document.getElementById('navSignIn')?.addEventListener('click', promptGoogleSignIn);
       document.getElementById('mobileSignIn')?.addEventListener('click', promptGoogleSignIn);
+      document.getElementById('navSignOut')?.addEventListener('click', handleSignOut);
+      document.getElementById('mobileSignOut')?.addEventListener('click', handleSignOut);
     </script>
 
     <footer class="footer">
@@ -582,6 +693,49 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
     box-shadow: var(--shadow-sm);
   }
 
+  .nav-auth {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-user {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .nav-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+  }
+
+  .nav-user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .nav-signout {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .nav-signout:hover {
+    background: var(--slate-50);
+    border-color: var(--slate-300);
+    color: var(--text-primary);
+  }
+
   .mobile-signin {
     display: flex;
     align-items: center;
@@ -598,6 +752,58 @@ const { title, description = "Get transcripts from YouTube, TikTok, and Instagra
     cursor: pointer;
     margin-top: 0.5rem;
     font-family: inherit;
+  }
+
+  .mobile-auth {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .mobile-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .mobile-user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mobile-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+  }
+
+  .mobile-user-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .mobile-signout {
+    width: 100%;
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-signout:hover {
+    background: var(--slate-50);
+    border-color: var(--slate-300);
+    color: var(--text-primary);
   }
 
   .nav-mobile-toggle {
