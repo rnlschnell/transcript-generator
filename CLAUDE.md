@@ -57,6 +57,10 @@ Load an extension manually in Chrome:
 cd web
 npm install
 npm run dev
+
+# Build and deploy to production (Cloudflare Pages)
+npm run build
+npx wrangler pages deploy dist --project-name=transcriptmagic-web --branch=main --commit-dirty=true
 ```
 
 ## Key Files

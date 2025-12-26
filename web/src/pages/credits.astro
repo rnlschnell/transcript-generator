@@ -2,181 +2,126 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Credits - TranscriptMagic" description="Purchase credits for TranscriptMagic. Get transcripts from YouTube, TikTok, and Instagram videos.">
+<Layout title="Credits - TranscriptMagic" description="Simple, transparent pricing. Start free, upgrade when you need more.">
   <!-- Hero -->
   <section class="credits-hero">
     <div class="container">
-      <span class="section-tag">Credits</span>
-      <h1>Buy Credits</h1>
-      <p>Purchase credit packs to transcribe more videos. Credits never expire.</p>
+      <span class="section-tag">Pricing</span>
+      <h1>Simple credit-based pricing</h1>
+      <p>Start with 10 free transcripts. Buy more credits when you need them.</p>
     </div>
   </section>
 
-  <!-- User Section -->
-  <section class="user-section">
+  <!-- Plans -->
+  <section class="credits-plans">
     <div class="container">
-      <div class="user-card" id="userCard">
-        <div class="user-not-signed-in" id="notSignedIn">
-          <div class="user-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
+      <div class="plans-grid">
+        <!-- Free Plan -->
+        <div class="plan-card">
+          <div class="plan-header">
+            <span class="plan-name">Free</span>
+            <div class="plan-price">
+              <span class="price-amount">$0</span>
+            </div>
+            <p class="plan-desc">Try before you commit</p>
           </div>
-          <div class="user-content">
-            <h3>Sign in to manage credits</h3>
-            <p>Create an account or sign in to purchase and track your credits.</p>
-          </div>
-          <div class="user-actions">
-            <button class="btn btn-primary" id="signInBtn">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-              </svg>
-              Sign in with Google
-            </button>
-          </div>
+
+          <ul class="plan-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span><strong>10</strong> free transcripts</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>YouTube, TikTok, Instagram</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Timestamps included</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>No signup required</span>
+            </li>
+          </ul>
+
+          <a href="/download" class="btn btn-secondary btn-full">Start Free</a>
         </div>
 
-        <div class="user-signed-in" id="signedIn" style="display: none;">
-          <div class="user-avatar" id="userAvatar">
-            <img src="" alt="Profile" id="userPicture" />
-          </div>
-          <div class="user-content">
-            <h3 id="userName">User Name</h3>
-            <p id="userEmail">user@example.com</p>
-          </div>
-          <div class="credit-balance">
-            <span class="balance-amount" id="creditBalance">0</span>
-            <span class="balance-label">credits</span>
-          </div>
-          <button class="btn btn-secondary btn-sm" id="signOutBtn">Sign Out</button>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- 50 Credits (Featured) -->
+        <div class="plan-card plan-featured">
+          <div class="plan-badge">Best Value</div>
 
-  <!-- Credit Packs -->
-  <section class="credit-packs">
-    <div class="container">
-      <div class="packs-grid">
-        <!-- 25 Credits -->
-        <div class="pack-card">
-          <div class="pack-header">
-            <span class="pack-amount">25</span>
-            <span class="pack-label">credits</span>
+          <div class="plan-header">
+            <span class="plan-name">50 Credits</span>
+            <div class="plan-price">
+              <span class="price-amount">$7.99</span>
+            </div>
+            <p class="plan-desc">$0.16 per transcript</p>
           </div>
-          <div class="pack-price">
-            <span class="price-amount">$4.99</span>
-            <span class="price-per">$0.20/credit</span>
-          </div>
-          <button class="btn btn-secondary btn-full pack-btn" data-credits="25" data-price="4.99">
-            Buy 25 Credits
-          </button>
-        </div>
 
-        <!-- 50 Credits (Popular) -->
-        <div class="pack-card pack-featured">
-          <div class="pack-badge">Best Value</div>
-          <div class="pack-header">
-            <span class="pack-amount">50</span>
-            <span class="pack-label">credits</span>
-          </div>
-          <div class="pack-price">
-            <span class="price-amount">$7.99</span>
-            <span class="price-per">$0.16/credit</span>
-          </div>
-          <button class="btn btn-primary btn-full pack-btn" data-credits="50" data-price="7.99">
-            Buy 50 Credits
-          </button>
+          <ul class="plan-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span><strong>50</strong> transcripts</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Credits never expire</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>SRT file exports</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Chrome extensions</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Email support</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-primary btn-full buy-btn" data-credits="50" data-price="7.99">Buy 50 Credits</button>
         </div>
 
-        <!-- 100 Credits -->
-        <div class="pack-card">
-          <div class="pack-header">
-            <span class="pack-amount">100</span>
-            <span class="pack-label">credits</span>
-          </div>
-          <div class="pack-price">
-            <span class="price-amount">$12.99</span>
-            <span class="price-per">$0.13/credit</span>
-          </div>
-          <button class="btn btn-secondary btn-full pack-btn" data-credits="100" data-price="12.99">
-            Buy 100 Credits
-          </button>
-        </div>
+        <!-- 250 Credits Plan -->
+        <div class="plan-card">
+          <div class="plan-badge plan-badge-save">Save 50%</div>
 
-        <!-- 250 Credits -->
-        <div class="pack-card">
-          <div class="pack-badge pack-badge-save">Save 50%</div>
-          <div class="pack-header">
-            <span class="pack-amount">250</span>
-            <span class="pack-label">credits</span>
+          <div class="plan-header">
+            <span class="plan-name">250 Credits</span>
+            <div class="plan-price">
+              <span class="price-amount">$24.99</span>
+            </div>
+            <p class="plan-desc">$0.10 per transcript</p>
           </div>
-          <div class="pack-price">
-            <span class="price-amount">$24.99</span>
-            <span class="price-per">$0.10/credit</span>
-          </div>
-          <button class="btn btn-dark btn-full pack-btn" data-credits="250" data-price="24.99">
-            Buy 250 Credits
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- How Credits Work -->
-  <section class="how-credits">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">How It Works</span>
-        <h2>Simple credit system</h2>
-        <p>One credit = one video transcript. No subscriptions, no monthly fees.</p>
-      </div>
+          <ul class="plan-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span><strong>250</strong> transcripts</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Credits never expire</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>SRT file exports</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Chrome extensions</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+              <span>Priority support</span>
+            </li>
+          </ul>
 
-      <div class="credits-features">
-        <div class="credit-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-          </div>
-          <h3>Never Expire</h3>
-          <p>Your credits are yours forever. Use them whenever you need.</p>
-        </div>
-
-        <div class="credit-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-          </div>
-          <h3>Pay As You Go</h3>
-          <p>No recurring charges. Buy more credits only when you need them.</p>
-        </div>
-
-        <div class="credit-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-            </svg>
-          </div>
-          <h3>Secure Payments</h3>
-          <p>All transactions are processed securely through Stripe.</p>
-        </div>
-
-        <div class="credit-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="14" x="2" y="5" rx="2"/>
-              <path d="M2 10h20"/>
-            </svg>
-          </div>
-          <h3>Instant Delivery</h3>
-          <p>Credits are added to your account immediately after purchase.</p>
+          <button class="btn btn-dark btn-full buy-btn" data-credits="250" data-price="24.99">Buy 250 Credits</button>
         </div>
       </div>
     </div>
@@ -187,23 +132,23 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="section-header">
         <span class="section-tag">FAQ</span>
-        <h2>Questions about credits</h2>
+        <h2>Frequently asked questions</h2>
       </div>
 
       <div class="faq-grid">
         <div class="faq-item">
-          <h3>How many credits do I get for free?</h3>
-          <p>Every new user gets 10 free credits to try TranscriptMagic. No credit card required.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>How much is one credit?</h3>
-          <p>One credit = one video transcript. Prices range from $0.10 to $0.20 per credit depending on the pack size.</p>
-        </div>
-
-        <div class="faq-item">
           <h3>Do credits expire?</h3>
-          <p>No! Your credits never expire. Use them whenever you want, even months from now.</p>
+          <p>No! Your credits never expire. Buy once, use whenever you need them.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What platforms are supported?</h3>
+          <p>We support YouTube videos, TikTok clips, and Instagram Reels. More platforms coming soon.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What payment methods do you accept?</h3>
+          <p>We accept all major credit cards through our secure payment processor, Stripe.</p>
         </div>
 
         <div class="faq-item">
@@ -214,14 +159,14 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Start Free CTA -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-box">
-        <h2>Start with 10 free credits</h2>
-        <p>Try TranscriptMagic free. No credit card required.</p>
+        <h2>Ready to start transcribing?</h2>
+        <p>Try TranscriptMagic free with 10 transcripts. No credit card required.</p>
         <a href="/download" class="btn btn-primary btn-lg">
-          Get Started Free
+          Start Free
           <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/>
           </svg>
@@ -232,59 +177,12 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  // Placeholder for future auth integration
-  const signInBtn = document.getElementById('signInBtn');
-  const signOutBtn = document.getElementById('signOutBtn');
-  const notSignedIn = document.getElementById('notSignedIn');
-  const signedIn = document.getElementById('signedIn');
-  const packBtns = document.querySelectorAll('.pack-btn');
+  const buyBtns = document.querySelectorAll('.buy-btn');
 
-  // Check for existing user in localStorage
-  const existingUser = localStorage.getItem('transcriptmagic_user');
-  if (existingUser) {
-    try {
-      const user = JSON.parse(existingUser);
-      showSignedInState(user);
-    } catch (e) {
-      console.error('Error parsing user data:', e);
-    }
-  }
-
-  function showSignedInState(user) {
-    if (notSignedIn) notSignedIn.style.display = 'none';
-    if (signedIn) signedIn.style.display = 'flex';
-
-    const userName = document.getElementById('userName');
-    const userEmail = document.getElementById('userEmail');
-    const userPicture = document.getElementById('userPicture');
-    const creditBalance = document.getElementById('creditBalance');
-
-    if (userName) userName.textContent = user.name || 'User';
-    if (userEmail) userEmail.textContent = user.email || '';
-    if (userPicture && user.picture) userPicture.src = user.picture;
-    if (creditBalance) creditBalance.textContent = user.credits || 0;
-  }
-
-  function showSignedOutState() {
-    if (notSignedIn) notSignedIn.style.display = 'flex';
-    if (signedIn) signedIn.style.display = 'none';
-  }
-
-  signInBtn?.addEventListener('click', () => {
-    // Placeholder: In future, this will trigger Google OAuth
-    alert('Sign in functionality coming soon! For now, use the web app or extensions to get your 10 free transcripts.');
-  });
-
-  signOutBtn?.addEventListener('click', () => {
-    localStorage.removeItem('transcriptmagic_user');
-    showSignedOutState();
-  });
-
-  packBtns.forEach(btn => {
+  buyBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const credits = btn.getAttribute('data-credits');
       const price = btn.getAttribute('data-price');
-      // Placeholder: In future, this will trigger Stripe checkout
       alert(`Payment for ${credits} credits ($${price}) coming soon!`);
     });
   });
@@ -320,145 +218,43 @@ import Layout from '../layouts/Layout.astro';
     margin: 0 auto;
   }
 
-  /* User Section */
-  .user-section {
-    padding: 0 0 3rem;
-  }
-
-  .user-card {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--background-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 2rem;
-  }
-
-  .user-not-signed-in,
-  .user-signed-in {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-  }
-
-  .user-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--primary-muted);
-    border-radius: 50%;
-    color: var(--primary);
-  }
-
-  .user-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .user-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--slate-200);
-  }
-
-  .user-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .user-content {
-    flex: 1;
-    min-width: 150px;
-  }
-
-  .user-content h3 {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.125rem;
-  }
-
-  .user-content p {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .user-actions {
-    flex-shrink: 0;
-  }
-
-  .credit-balance {
-    text-align: center;
-    padding: 0.5rem 1.25rem;
-    background: var(--primary-muted);
-    border-radius: var(--radius-md);
-  }
-
-  .balance-amount {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1.2;
-  }
-
-  .balance-label {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.8125rem;
-  }
-
-  /* Credit Packs */
-  .credit-packs {
+  /* Plans */
+  .credits-plans {
     padding: 2rem 0 6rem;
   }
 
-  .packs-grid {
+  .plans-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     max-width: 1000px;
     margin: 0 auto;
   }
 
-  .pack-card {
+  .plan-card {
     position: relative;
     background: white;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 2rem 1.5rem;
-    text-align: center;
+    padding: 2rem;
     transition: all 0.3s ease;
   }
 
-  .pack-card:hover {
+  .plan-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
   }
 
-  .pack-featured {
+  .plan-featured {
     border: 2px solid var(--primary);
     box-shadow: var(--shadow-glow);
   }
 
-  .pack-featured:hover {
+  .plan-featured:hover {
     box-shadow: var(--shadow-glow), var(--shadow-lg);
   }
 
-  .pack-badge {
+  .plan-badge {
     position: absolute;
     top: -12px;
     left: 50%;
@@ -472,46 +268,70 @@ import Layout from '../layouts/Layout.astro';
     white-space: nowrap;
   }
 
-  .pack-badge-save {
-    background: linear-gradient(135deg, var(--coral-500) 0%, var(--coral-600) 100%);
+  .plan-badge-save {
+    background: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-600) 100%);
   }
 
-  .pack-header {
+  .plan-header {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .plan-name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
     margin-bottom: 0.75rem;
   }
 
-  .pack-amount {
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-amount {
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--slate-900);
     letter-spacing: -0.02em;
-    line-height: 1;
   }
 
-  .pack-label {
-    display: block;
+  .plan-desc {
     color: var(--text-secondary);
     font-size: 0.875rem;
-    margin-top: 0.25rem;
   }
 
-  .pack-price {
-    margin-bottom: 1.5rem;
+  .plan-features {
+    list-style: none;
+    margin-bottom: 2rem;
   }
 
-  .pack-price .price-amount {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--slate-900);
-    margin-bottom: 0.25rem;
+  .plan-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
   }
 
-  .pack-price .price-per {
-    font-size: 0.8125rem;
-    color: var(--text-muted);
+  .plan-features li strong {
+    color: var(--text-primary);
+  }
+
+  .plan-features svg {
+    width: 18px;
+    height: 18px;
+    color: var(--success);
+    flex-shrink: 0;
   }
 
   .btn-full {
@@ -535,69 +355,22 @@ import Layout from '../layouts/Layout.astro';
     color: var(--text-secondary);
   }
 
-  /* How Credits Work */
-  .how-credits {
-    padding: 6rem 0;
-    background: var(--background-secondary);
-  }
-
-  .credits-features {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .credit-feature {
-    text-align: center;
-  }
-
-  .feature-icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--primary-muted);
-    border-radius: var(--radius-md);
-  }
-
-  .feature-icon svg {
-    width: 28px;
-    height: 28px;
-    color: var(--primary);
-  }
-
-  .credit-feature h3 {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .credit-feature p {
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-
   /* FAQ */
   .faq {
     padding: 6rem 0;
+    background: var(--background-secondary);
   }
 
   .faq-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
   .faq-item {
-    background: var(--background-secondary);
+    background: white;
     padding: 1.5rem;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
@@ -620,7 +393,6 @@ import Layout from '../layouts/Layout.astro';
   /* CTA */
   .cta-section {
     padding: 4rem 0 6rem;
-    background: var(--background-secondary);
   }
 
   .cta-box {
@@ -648,42 +420,17 @@ import Layout from '../layouts/Layout.astro';
 
   /* Responsive */
   @media (max-width: 900px) {
-    .packs-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .plans-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
     }
 
-    .credits-features {
-      grid-template-columns: repeat(2, 1fr);
+    .plan-featured {
+      order: -1;
     }
 
     .faq-grid {
       grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .packs-grid {
-      grid-template-columns: 1fr;
-      max-width: 320px;
-    }
-
-    .credits-features {
-      grid-template-columns: 1fr;
-    }
-
-    .user-not-signed-in,
-    .user-signed-in {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .user-actions {
-      width: 100%;
-    }
-
-    .user-actions .btn {
-      width: 100%;
-      justify-content: center;
     }
   }
 </style>
