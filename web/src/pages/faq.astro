@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="FAQ - TranscriptMagic" description="Frequently asked questions about TranscriptMagic video transcription service.">
+  <section class="faq-page">
+    <div class="container">
+      <div class="faq-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about TranscriptMagic.</p>
+      </div>
+
+      <div class="faq-content">
+        <div class="faq-category">
+          <h2>General</h2>
+
+          <div class="faq-item">
+            <h3>What is TranscriptMagic?</h3>
+            <p>TranscriptMagic is a tool that extracts transcripts from YouTube videos, TikTok clips, and Instagram Reels. Just paste a video URL and get the text instantly.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>What platforms are supported?</h3>
+            <p>We currently support YouTube (including Shorts), TikTok, and Instagram (Reels and video posts). Just paste any video URL from these platforms.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How accurate are the transcripts?</h3>
+            <p>Accuracy depends on the audio quality of the original video. Clear speech with minimal background noise produces the best results. Most videos achieve 90%+ accuracy.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do transcripts include timestamps?</h3>
+            <p>Yes! Every transcript includes precise timestamps. You can copy text with or without timestamps, or download as an SRT file with full timing information.</p>
+          </div>
+        </div>
+
+        <div class="faq-category">
+          <h2>Pricing & Credits</h2>
+
+          <div class="faq-item">
+            <h3>Is TranscriptMagic free?</h3>
+            <p>You get 10 free transcripts to start — no account required. After that, you can purchase credit packs starting at $4.99.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do credits expire?</h3>
+            <p>No, credits never expire. Use them whenever you need.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>What payment methods do you accept?</h3>
+            <p>We accept all major credit cards through our secure payment processor.</p>
+          </div>
+        </div>
+
+        <div class="faq-category">
+          <h2>Features & Export</h2>
+
+          <div class="faq-item">
+            <h3>What export formats are available?</h3>
+            <p>You can copy transcripts as plain text, text with timestamps, or download as SRT files for use in video editing software like Premiere Pro, Final Cut, or DaVinci Resolve.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I edit the transcript?</h3>
+            <p>Currently, transcripts are read-only. You can copy the text and edit it in your preferred text editor.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>What languages are supported?</h3>
+            <p>TranscriptMagic works with any language that has audio in the video. The transcription quality is best for English but supports many other languages.</p>
+          </div>
+        </div>
+
+        <div class="faq-category">
+          <h2>Chrome Extensions</h2>
+
+          <div class="faq-item">
+            <h3>What do the extensions do?</h3>
+            <p>Our Chrome extensions add a "Transcript" button directly to YouTube, TikTok, and Instagram pages. One click gives you the transcript without leaving the site.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Are the extensions free?</h3>
+            <p>Yes, all extensions are free to install. They use the same credits as the web app.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do extensions work on all browsers?</h3>
+            <p>Currently, our extensions are available for Chrome and Chromium-based browsers (Edge, Brave, etc.).</p>
+          </div>
+        </div>
+
+        <div class="faq-category">
+          <h2>Privacy & Legal</h2>
+
+          <div class="faq-item">
+            <h3>Is it legal to transcribe videos?</h3>
+            <p>Transcribing videos for personal use, accessibility, or content analysis is generally acceptable. Always respect copyright and give credit to original creators when sharing content.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do you store my transcripts?</h3>
+            <p>No, we don't store your transcripts. They're generated on-demand and only exist in your browser session.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>What data do you collect?</h3>
+            <p>We collect minimal data needed to provide the service. See our <a href="/privacy">Privacy Policy</a> for details.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-cta">
+        <h2>Still have questions?</h2>
+        <p>Try our tool and see how easy it is to get video transcripts.</p>
+        <a href="/download" class="btn btn-primary">Try TranscriptMagic Free</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .faq-page {
+    padding: 4rem 0;
+  }
+
+  .faq-page .container {
+    max-width: 800px;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+  }
+
+  .faq-content {
+    margin-bottom: 4rem;
+  }
+
+  .faq-category {
+    margin-bottom: 2.5rem;
+  }
+
+  .faq-category h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-muted);
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: var(--background-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .faq-item h3 {
+    font-size: 1rem;
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .faq-item p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .faq-item a {
+    color: var(--primary);
+  }
+
+  .faq-item a:hover {
+    text-decoration: underline;
+  }
+
+  .faq-cta {
+    text-align: center;
+    padding: 3rem;
+    background: var(--background-secondary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+  }
+
+  .faq-cta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .faq-header h1 {
+      font-size: 2rem;
+    }
+
+    .faq-item {
+      padding: 1rem;
+    }
+
+    .faq-cta {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
