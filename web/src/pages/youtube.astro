@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloadForm from '../components/DownloadForm';
+---
+
+<Layout title="YouTube Video Transcript Generator - TranscriptMagic" description="Get accurate transcripts from any YouTube video instantly. AI-powered transcription with timestamps. Copy text or download SRT subtitles for free.">
+  <section class="platform-page">
+    <div class="container">
+      <!-- Platform Header -->
+      <div class="platform-header">
+        <div class="platform-icon youtube">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <h1>YouTube Transcript Generator</h1>
+        <p>Get accurate transcripts from any YouTube video in seconds. Works with regular videos, shorts, and more.</p>
+      </div>
+
+      <!-- Transcript Card -->
+      <div class="transcript-card">
+        <div class="form-wrapper">
+          <DownloadForm platform="youtube" client:only="react" />
+        </div>
+      </div>
+
+      <!-- Supported Formats -->
+      <div class="formats-section">
+        <h2>Supported YouTube URL Formats</h2>
+        <div class="formats-grid">
+          <div class="format-item">
+            <code>youtube.com/watch?v=...</code>
+            <span>Regular videos</span>
+          </div>
+          <div class="format-item">
+            <code>youtu.be/...</code>
+            <span>Short links</span>
+          </div>
+          <div class="format-item">
+            <code>youtube.com/shorts/...</code>
+            <span>YouTube Shorts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="features-section">
+        <h2>Why Use Our YouTube Transcriber?</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3>Instant Results</h3>
+            <p>Get transcripts in seconds, not minutes. Our AI processes videos faster than real-time.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <h3>Accurate Timestamps</h3>
+            <p>Every line includes precise timestamps for easy navigation and subtitle creation.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" x2="12" y1="15" y2="3"/>
+              </svg>
+            </div>
+            <h3>SRT Export</h3>
+            <p>Download as SRT files for Premiere Pro, Final Cut, DaVinci Resolve, and more.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div class="use-cases-section">
+        <h2>Perfect For</h2>
+        <div class="use-cases-grid">
+          <div class="use-case">Content creators needing subtitles</div>
+          <div class="use-case">Students transcribing lectures</div>
+          <div class="use-case">Researchers analyzing video content</div>
+          <div class="use-case">Marketers repurposing video content</div>
+          <div class="use-case">Journalists creating quotes</div>
+          <div class="use-case">Accessibility compliance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .platform-page {
+    padding: 4rem 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .platform-page .container {
+    max-width: 800px;
+  }
+
+  .platform-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .platform-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .platform-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .platform-icon.youtube {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  .platform-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .platform-header p {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .transcript-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .formats-section {
+    margin-bottom: 3rem;
+  }
+
+  .formats-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .format-item {
+    background: var(--background-secondary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .format-item code {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    font-family: 'SF Mono', monospace;
+    margin-bottom: 0.5rem;
+  }
+
+  .format-item span {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .features-section {
+    margin-bottom: 3rem;
+  }
+
+  .features-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    text-align: center;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-muted);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+
+  .feature-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .use-cases-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .use-cases-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .use-case {
+    background: var(--background-secondary);
+    padding: 0.625rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+  }
+
+  @media (max-width: 768px) {
+    .formats-grid,
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

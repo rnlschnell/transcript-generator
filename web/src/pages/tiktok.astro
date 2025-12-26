@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloadForm from '../components/DownloadForm';
+---
+
+<Layout title="TikTok Video Transcript Generator - TranscriptMagic" description="Get accurate transcripts from TikTok videos instantly. AI-powered transcription with timestamps. Copy text or download SRT subtitles for free.">
+  <section class="platform-page">
+    <div class="container">
+      <!-- Platform Header -->
+      <div class="platform-header">
+        <div class="platform-icon tiktok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+          </svg>
+        </div>
+        <h1>TikTok Transcript Generator</h1>
+        <p>Get accurate transcripts from any TikTok video in seconds. Perfect for repurposing viral content.</p>
+      </div>
+
+      <!-- Transcript Card -->
+      <div class="transcript-card">
+        <div class="form-wrapper">
+          <DownloadForm platform="tiktok" client:only="react" />
+        </div>
+      </div>
+
+      <!-- Supported Formats -->
+      <div class="formats-section">
+        <h2>Supported TikTok URL Formats</h2>
+        <div class="formats-grid">
+          <div class="format-item">
+            <code>tiktok.com/@user/video/...</code>
+            <span>Full video URLs</span>
+          </div>
+          <div class="format-item">
+            <code>vm.tiktok.com/...</code>
+            <span>Short share links</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="features-section">
+        <h2>Why Use Our TikTok Transcriber?</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3>Instant Results</h3>
+            <p>Get transcripts in seconds, not minutes. Our AI processes videos faster than real-time.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <h3>Accurate Timestamps</h3>
+            <p>Every line includes precise timestamps for easy navigation and subtitle creation.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" x2="12" y1="15" y2="3"/>
+              </svg>
+            </div>
+            <h3>SRT Export</h3>
+            <p>Download as SRT files for editing in CapCut, Premiere Pro, or any video editor.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div class="use-cases-section">
+        <h2>Perfect For</h2>
+        <div class="use-cases-grid">
+          <div class="use-case">Repurposing TikToks for YouTube Shorts</div>
+          <div class="use-case">Creating captions for accessibility</div>
+          <div class="use-case">Analyzing viral content trends</div>
+          <div class="use-case">Saving video scripts for reference</div>
+          <div class="use-case">Creating blog posts from videos</div>
+          <div class="use-case">Content research and analysis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .platform-page {
+    padding: 4rem 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .platform-page .container {
+    max-width: 800px;
+  }
+
+  .platform-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .platform-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .platform-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .platform-icon.tiktok {
+    background: #0f172a;
+    color: white;
+  }
+
+  .platform-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .platform-header p {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .transcript-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .formats-section {
+    margin-bottom: 3rem;
+  }
+
+  .formats-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .format-item {
+    background: var(--background-secondary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .format-item code {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    font-family: 'SF Mono', monospace;
+    margin-bottom: 0.5rem;
+  }
+
+  .format-item span {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .features-section {
+    margin-bottom: 3rem;
+  }
+
+  .features-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    text-align: center;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-muted);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+
+  .feature-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .use-cases-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .use-cases-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .use-case {
+    background: var(--background-secondary);
+    padding: 0.625rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+  }
+
+  @media (max-width: 768px) {
+    .formats-grid,
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

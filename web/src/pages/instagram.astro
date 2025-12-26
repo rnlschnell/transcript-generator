@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloadForm from '../components/DownloadForm';
+---
+
+<Layout title="Instagram Reel Transcript Generator - TranscriptMagic" description="Get accurate transcripts from Instagram Reels and videos instantly. AI-powered transcription with timestamps. Copy text or download SRT subtitles for free.">
+  <section class="platform-page">
+    <div class="container">
+      <!-- Platform Header -->
+      <div class="platform-header">
+        <div class="platform-icon instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </div>
+        <h1>Instagram Transcript Generator</h1>
+        <p>Get accurate transcripts from Instagram Reels and video posts in seconds. Perfect for repurposing content.</p>
+      </div>
+
+      <!-- Transcript Card -->
+      <div class="transcript-card">
+        <div class="form-wrapper">
+          <DownloadForm platform="instagram" client:only="react" />
+        </div>
+      </div>
+
+      <!-- Supported Formats -->
+      <div class="formats-section">
+        <h2>Supported Instagram URL Formats</h2>
+        <div class="formats-grid">
+          <div class="format-item">
+            <code>instagram.com/reel/...</code>
+            <span>Instagram Reels</span>
+          </div>
+          <div class="format-item">
+            <code>instagram.com/p/...</code>
+            <span>Video posts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="features-section">
+        <h2>Why Use Our Instagram Transcriber?</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3>Instant Results</h3>
+            <p>Get transcripts in seconds, not minutes. Our AI processes videos faster than real-time.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <h3>Accurate Timestamps</h3>
+            <p>Every line includes precise timestamps for easy navigation and subtitle creation.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" x2="12" y1="15" y2="3"/>
+              </svg>
+            </div>
+            <h3>SRT Export</h3>
+            <p>Download as SRT files for adding captions when you repost to other platforms.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div class="use-cases-section">
+        <h2>Perfect For</h2>
+        <div class="use-cases-grid">
+          <div class="use-case">Repurposing Reels for other platforms</div>
+          <div class="use-case">Creating blog posts from videos</div>
+          <div class="use-case">Adding captions to improve reach</div>
+          <div class="use-case">Analyzing competitor content</div>
+          <div class="use-case">Saving important video content</div>
+          <div class="use-case">SEO and content indexing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .platform-page {
+    padding: 4rem 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .platform-page .container {
+    max-width: 800px;
+  }
+
+  .platform-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .platform-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .platform-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .platform-icon.instagram {
+    background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #ede9fe 100%);
+    color: #e11d48;
+  }
+
+  .platform-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .platform-header p {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .transcript-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .formats-section {
+    margin-bottom: 3rem;
+  }
+
+  .formats-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .format-item {
+    background: var(--background-secondary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .format-item code {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    font-family: 'SF Mono', monospace;
+    margin-bottom: 0.5rem;
+  }
+
+  .format-item span {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .features-section {
+    margin-bottom: 3rem;
+  }
+
+  .features-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    text-align: center;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-muted);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+
+  .feature-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .use-cases-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .use-cases-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .use-case {
+    background: var(--background-secondary);
+    padding: 0.625rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+  }
+
+  @media (max-width: 768px) {
+    .formats-grid,
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
