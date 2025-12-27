@@ -33,8 +33,8 @@ function updateRemainingDisplay(count) {
   const remainingEl = document.getElementById('remainingCount');
   if (countEl) countEl.textContent = count;
   if (remainingEl) {
-    remainingEl.classList.toggle('warning', count <= 3 && count > 0);
-    remainingEl.classList.toggle('exhausted', count <= 0);
+    // Only show when 3 or fewer credits remaining
+    remainingEl.classList.toggle('hidden', count > 3);
   }
 }
 
@@ -288,3 +288,11 @@ downloadTxtBtn.addEventListener('click', () => {
     downloadFile(currentTranscript, filename, 'text/plain');
   }
 });
+
+// Get More Credits button
+const getMoreCreditsBtn = document.getElementById('getMoreCreditsBtn');
+if (getMoreCreditsBtn) {
+  getMoreCreditsBtn.addEventListener('click', () => {
+    chrome.tabs.create({ url: 'https://transcriptmagic.com/credits' });
+  });
+}

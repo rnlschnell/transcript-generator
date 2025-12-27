@@ -2,13 +2,33 @@ name = "transcript-worker"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
 
-# Secrets (set with: npx wrangler secret put <NAME>)
+# =============================================================================
+# SECRETS (set with: npx wrangler secret put <NAME>)
+# =============================================================================
 #
-# SCRAPECREATORS_API_KEY - API key for ScrapeCreators API
+# Required:
+#   SCRAPECREATORS_API_KEY    - API key for ScrapeCreators API
+#
+# Google OAuth (optional - skip validation if not set):
+#   GOOGLE_CLIENT_ID_EXTENSION - Google OAuth client ID for Chrome extension
+#   GOOGLE_CLIENT_ID_WEB       - Google OAuth client ID for web app
+#
+# Lemon Squeezy (required for payments):
+#   LEMON_API_KEY              - Lemon Squeezy API key
+#   LEMON_STORE_ID             - Your Lemon Squeezy store ID
+#   LEMON_WEBHOOK_SECRET       - Webhook signing secret from Lemon Squeezy
+#
+# Credit package variant IDs:
+#   LEMON_CREDITS_200_VARIANT_ID  - Variant ID for 200 credits
+#   LEMON_CREDITS_500_VARIANT_ID  - Variant ID for 500 credits
+#   LEMON_CREDITS_1000_VARIANT_ID - Variant ID for 1000 credits
 
-# KV namespace for usage tracking
+# =============================================================================
+# KV NAMESPACE
+# =============================================================================
+# Stores device usage tracking and user accounts
 # Create with: npx wrangler kv:namespace create USAGE_STORE
-# Then replace the id below with the output
+
 [[kv_namespaces]]
 binding = "USAGE_STORE"
 id = "3971eda58b2c45d28e8352f5142a4e18"

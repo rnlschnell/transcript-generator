@@ -19,20 +19,20 @@
   --slate-100: #f1f5f9;
   --slate-50: #f8fafc;
 
-  /* Brand colors */
-  --cyan-500: #06b6d4;
-  --cyan-400: #22d3ee;
-  --cyan-600: #0891b2;
-  --coral-500: #f97316;
-  --coral-400: #fb923c;
-  --coral-600: #ea580c;
+  /* Brand colors - TikTok (softened for UI comfort) */
+  --tiktok-teal: #40E0D6;
+  --tiktok-teal-light: #6EEEE6;
+  --tiktok-teal-dark: #2DD4C8;
+  --tiktok-pink: #F43F6B;
+  --tiktok-pink-light: #FF6B8A;
+  --tiktok-pink-dark: #DC2655;
 
   /* Semantic */
-  --primary: var(--cyan-500);
-  --primary-hover: var(--cyan-400);
-  --primary-muted: rgba(6, 182, 212, 0.12);
-  --accent: var(--coral-500);
-  --accent-hover: var(--coral-400);
+  --primary: var(--tiktok-teal);
+  --primary-hover: var(--tiktok-teal);
+  --primary-muted: rgba(37, 244, 238, 0.12);
+  --accent: var(--tiktok-pink);
+  --accent-hover: var(--tiktok-pink-light);
   --text-primary: var(--slate-900);
   --text-secondary: var(--slate-600);
   --text-muted: var(--slate-400);
@@ -189,8 +189,8 @@ body {
   justify-content: center;
   min-width: 24px;
   height: 24px;
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--tiktok-teal) 0%, var(--tiktok-teal-dark) 100%);
+  color: #000;
   border-radius: 6px;
   font-weight: 700;
   font-size: 0.8125rem;
@@ -203,8 +203,8 @@ body {
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: linear-gradient(135deg, var(--cyan-600) 0%, var(--cyan-500) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--tiktok-teal-dark) 0%, var(--tiktok-teal) 100%);
+  color: #000;
   border: none;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
@@ -215,7 +215,7 @@ body {
 }
 
 .btn-get-credits:hover {
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-400) 100%);
+  background: linear-gradient(135deg, var(--tiktok-teal) 0%, var(--tiktok-teal) 100%);
   transform: translateY(-1px);
 }
 
@@ -245,8 +245,8 @@ body {
 
 /* Current Video Card */
 .current-video {
-  background: var(--primary-muted);
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  background: rgba(254, 44, 85, 0.08);
+  border: 1px solid rgba(254, 44, 85, 0.15);
   border-radius: var(--radius-md);
   padding: 14px;
   display: none;
@@ -264,13 +264,13 @@ body {
   gap: 8px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--cyan-600);
+  color: var(--tiktok-pink-dark);
 }
 
 .current-video-label svg {
   width: 16px;
   height: 16px;
-  fill: var(--primary);
+  fill: var(--tiktok-pink);
 }
 
 /* Divider */
@@ -312,8 +312,8 @@ body {
   display: none;
   flex-direction: column;
   gap: 12px;
-  background: var(--primary-muted);
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  background: rgba(254, 44, 85, 0.08);
+  border: 1px solid rgba(254, 44, 85, 0.15);
   border-radius: var(--radius-md);
   padding: 14px;
 }
@@ -389,15 +389,15 @@ input[type="url"]::placeholder {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--coral-500) 0%, var(--coral-600) 100%);
+  background: linear-gradient(135deg, var(--tiktok-pink) 0%, var(--tiktok-pink-dark) 100%);
   color: white;
-  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(254, 44, 85, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--coral-400) 0%, var(--coral-500) 100%);
+  background: linear-gradient(135deg, var(--tiktok-pink-light) 0%, var(--tiktok-pink) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(254, 44, 85, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -460,15 +460,15 @@ input[type="url"]::placeholder {
 
 /* Upgrade button */
 .btn-upgrade {
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--tiktok-teal) 0%, var(--tiktok-teal-dark) 100%);
   color: white;
   border: none;
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 2px 8px rgba(45, 212, 200, 0.25);
 }
 
 .btn-upgrade:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.35);
+  box-shadow: 0 4px 12px rgba(45, 212, 200, 0.35);
 }
 
 /* Spinner */
@@ -521,7 +521,7 @@ input[type="url"]::placeholder {
 
 .status.info {
   background: var(--primary-muted);
-  color: var(--cyan-600);
+  color: var(--tiktok-teal-dark);
 }
 
 .status svg {
@@ -697,8 +697,8 @@ input[type="url"]::placeholder {
 }
 
 .btn-plan-featured:hover:not(:disabled) {
-  border-color: var(--cyan-400);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15);
+  border-color: var(--tiktok-teal-light);
+  box-shadow: 0 4px 12px rgba(45, 212, 200, 0.15);
 }
 
 .plan-badge {
@@ -706,7 +706,7 @@ input[type="url"]::placeholder {
   top: -8px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--tiktok-teal) 0%, var(--tiktok-teal-dark) 100%);
   color: white;
   font-size: 0.625rem;
   font-weight: 600;
@@ -719,7 +719,7 @@ input[type="url"]::placeholder {
 .btn-plan .spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(6, 182, 212, 0.2);
+  border: 2px solid rgba(64, 224, 214, 0.2);
   border-top-color: var(--primary);
 }
 
@@ -756,7 +756,7 @@ input[type="url"]::placeholder {
 }
 
 .footer-link:hover {
-  color: var(--cyan-600);
+  color: var(--tiktok-teal-dark);
 }
 
 /* Disabled state for form when limit reached */
@@ -869,15 +869,15 @@ input:focus-visible {
 
 /* Secondary button (for SRT download) */
 .btn-secondary {
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--tiktok-teal) 0%, var(--tiktok-teal-dark) 100%);
   color: white;
   border: none;
-  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.2);
+  box-shadow: 0 2px 6px rgba(64, 224, 214, 0.2);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--cyan-400) 0%, var(--cyan-500) 100%);
-  box-shadow: 0 3px 10px rgba(6, 182, 212, 0.3);
+  background: linear-gradient(135deg, var(--tiktok-teal-light) 0%, var(--tiktok-teal) 100%);
+  box-shadow: 0 3px 10px rgba(64, 224, 214, 0.3);
 }
 
 /* Scrollbar styling for transcript */

@@ -19,20 +19,18 @@
   --slate-100: #f1f5f9;
   --slate-50: #f8fafc;
 
-  /* Brand colors */
-  --cyan-500: #06b6d4;
-  --cyan-400: #22d3ee;
-  --cyan-600: #0891b2;
-  --coral-500: #f97316;
-  --coral-400: #fb923c;
-  --coral-600: #ea580c;
+  /* Brand colors - YouTube Red */
+  --red-500: #dc2626;
+  --red-400: #ef4444;
+  --red-600: #b91c1c;
+  --red-700: #991b1b;
 
   /* Semantic */
-  --primary: var(--cyan-500);
-  --primary-hover: var(--cyan-400);
-  --primary-muted: rgba(6, 182, 212, 0.12);
-  --accent: var(--coral-500);
-  --accent-hover: var(--coral-400);
+  --primary: var(--red-500);
+  --primary-hover: var(--red-400);
+  --primary-muted: rgba(220, 38, 38, 0.10);
+  --accent: var(--red-600);
+  --accent-hover: var(--red-500);
   --text-primary: var(--slate-900);
   --text-secondary: var(--slate-600);
   --text-muted: var(--slate-400);
@@ -189,7 +187,7 @@ body {
   justify-content: center;
   min-width: 24px;
   height: 24px;
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--red-500) 0%, var(--red-600) 100%);
   color: white;
   border-radius: 6px;
   font-weight: 700;
@@ -203,7 +201,7 @@ body {
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: linear-gradient(135deg, var(--cyan-600) 0%, var(--cyan-500) 100%);
+  background: linear-gradient(135deg, var(--red-600) 0%, var(--red-500) 100%);
   color: white;
   border: none;
   border-radius: var(--radius-sm);
@@ -215,7 +213,7 @@ body {
 }
 
 .btn-get-credits:hover {
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-400) 100%);
+  background: linear-gradient(135deg, var(--red-500) 0%, var(--red-400) 100%);
   transform: translateY(-1px);
 }
 
@@ -246,7 +244,7 @@ body {
 /* Current Video Card */
 .current-video {
   background: var(--primary-muted);
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.15);
   border-radius: var(--radius-md);
   padding: 14px;
   display: none;
@@ -264,7 +262,7 @@ body {
   gap: 8px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--cyan-600);
+  color: var(--red-600);
 }
 
 .current-video-label svg {
@@ -313,7 +311,7 @@ body {
   flex-direction: column;
   gap: 12px;
   background: var(--primary-muted);
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.15);
   border-radius: var(--radius-md);
   padding: 14px;
 }
@@ -389,15 +387,15 @@ input[type="url"]::placeholder {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--coral-500) 0%, var(--coral-600) 100%);
+  background: linear-gradient(135deg, var(--red-500) 0%, var(--red-600) 100%);
   color: white;
-  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--coral-400) 0%, var(--coral-500) 100%);
+  background: linear-gradient(135deg, var(--red-400) 0%, var(--red-500) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -460,15 +458,15 @@ input[type="url"]::placeholder {
 
 /* Upgrade button */
 .btn-upgrade {
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--red-500) 0%, var(--red-600) 100%);
   color: white;
   border: none;
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
 }
 
 .btn-upgrade:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.35);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
 }
 
 /* Spinner */
@@ -521,7 +519,7 @@ input[type="url"]::placeholder {
 
 .status.info {
   background: var(--primary-muted);
-  color: var(--cyan-600);
+  color: var(--red-600);
 }
 
 .status svg {
@@ -664,7 +662,7 @@ input[type="url"]::placeholder {
 }
 
 .btn-plan:hover:not(:disabled) {
-  border-color: var(--primary);
+  border-color: var(--red-500);
   background: var(--primary-muted);
 }
 
@@ -697,8 +695,8 @@ input[type="url"]::placeholder {
 }
 
 .btn-plan-featured:hover:not(:disabled) {
-  border-color: var(--cyan-400);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15);
+  border-color: var(--red-400);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
 }
 
 .plan-badge {
@@ -706,7 +704,7 @@ input[type="url"]::placeholder {
   top: -8px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--red-500) 0%, var(--red-600) 100%);
   color: white;
   font-size: 0.625rem;
   font-weight: 600;
@@ -719,7 +717,7 @@ input[type="url"]::placeholder {
 .btn-plan .spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid rgba(6, 182, 212, 0.2);
+  border: 2px solid rgba(220, 38, 38, 0.2);
   border-top-color: var(--primary);
 }
 
@@ -756,7 +754,7 @@ input[type="url"]::placeholder {
 }
 
 .footer-link:hover {
-  color: var(--cyan-600);
+  color: var(--red-700);
 }
 
 /* Disabled state for form when limit reached */
@@ -869,15 +867,15 @@ input:focus-visible {
 
 /* Secondary button (for SRT download) */
 .btn-secondary {
-  background: linear-gradient(135deg, var(--cyan-500) 0%, var(--cyan-600) 100%);
+  background: linear-gradient(135deg, var(--red-500) 0%, var(--red-600) 100%);
   color: white;
   border: none;
-  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.2);
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.2);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--cyan-400) 0%, var(--cyan-500) 100%);
-  box-shadow: 0 3px 10px rgba(6, 182, 212, 0.3);
+  background: linear-gradient(135deg, var(--red-400) 0%, var(--red-500) 100%);
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.3);
 }
 
 /* Scrollbar styling for transcript */
