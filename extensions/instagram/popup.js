@@ -209,11 +209,17 @@ async function getTranscript(url, button) {
       }
     }
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
+
     const response = await fetch(`${WORKER_URL}/api/instagram/transcript`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeoutId);
 
     const data = await response.json();
 
@@ -266,7 +272,11 @@ async function getTranscript(url, button) {
 
   } catch (err) {
     console.error('Error:', err);
-    showStatus(err.message || 'Something went wrong', 'error');
+    if (err.name === 'AbortError') {
+      showStatus('Request timed out. Please try again.', 'error');
+    } else {
+      showStatus(err.message || 'Something went wrong', 'error');
+    }
   } finally {
     setLoading(button, false);
   }

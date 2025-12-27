@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Instagram Transcript",
+  "name": "Instagram Transcript Generator/Extractor",
   "description": "Get transcripts from Instagram reels. Copy text or download as file.",
   "version": "1.0.0",
   "icons": {
@@ -27,5 +27,8 @@
   "oauth2": {
     "client_id": "600326666488-9ikfb3hmsvn80j14t0b0dbtqnme2lakh.apps.googleusercontent.com",
     "scopes": ["openid", "email", "profile"]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://api.transcriptmagic.com https://accounts.google.com"
   }
 }

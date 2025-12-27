@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Transcript",
+  "name": "YouTube Video Transcript Generator",
   "description": "Get transcripts from YouTube videos. Copy text or download SRT files.",
   "version": "1.0.0",
   "icons": {
@@ -27,5 +27,8 @@
   "oauth2": {
     "client_id": "600326666488-0jrd9rhoq8slgoq7po0uqlv8cv8o4hlq.apps.googleusercontent.com",
     "scopes": ["openid", "email", "profile"]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://api.transcriptmagic.com https://accounts.google.com"
   }
 }

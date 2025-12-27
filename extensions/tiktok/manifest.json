@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "TikTok Transcript",
+  "name": "TikTok Transcript Generator/Extractor",
   "description": "Get transcripts from TikTok videos. Copy text or download SRT files.",
   "version": "1.0.0",
   "icons": {
@@ -27,5 +27,8 @@
   "oauth2": {
     "client_id": "600326666488-p4tbjb2b77c2o3idpo34ll9gvs0vn233.apps.googleusercontent.com",
     "scopes": ["openid", "email", "profile"]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://api.transcriptmagic.com https://accounts.google.com"
   }
 }
