@@ -97,16 +97,18 @@ function isValidInstagramUrl(url) {
 }
 
 // =============================================================================
-// USAGE TRACKING (Anonymous Users)
+// USAGE TRACKING (Anonymous Users - Per Extension Type)
 // =============================================================================
 
-// Check device usage and return remaining credits
-async function checkUsage(env, deviceId) {
+// Check device usage and return remaining credits for a specific platform
+// Each extension type (youtube, instagram, tiktok) gets 10 free credits separately
+async function checkUsage(env, deviceId, platform = 'default') {
   if (!env.USAGE_STORE) {
     return { allowed: true, remaining: FREE_LIMIT, requiresSignup: false };
   }
 
-  const deviceKey = `device:${deviceId}`;
+  // Use platform-specific key for separate credit pools
+  const deviceKey = `device:${deviceId}:${platform.toLowerCase()}`;
   const deviceData = await env.USAGE_STORE.get(deviceKey, 'json');
 
   if (!deviceData) {
@@ -121,11 +123,12 @@ async function checkUsage(env, deviceId) {
   };
 }
 
-// Increment usage count for a device
-async function incrementUsage(env, deviceId, source = 'extension') {
+// Increment usage count for a device on a specific platform
+async function incrementUsage(env, deviceId, platform = 'default', source = 'extension') {
   if (!env.USAGE_STORE) return FREE_LIMIT - 1;
 
-  const deviceKey = `device:${deviceId}`;
+  // Use platform-specific key for separate credit pools
+  const deviceKey = `device:${deviceId}:${platform.toLowerCase()}`;
   const now = new Date().toISOString();
   let deviceData = await env.USAGE_STORE.get(deviceKey, 'json');
 
@@ -133,6 +136,7 @@ async function incrementUsage(env, deviceId, source = 'extension') {
     deviceData = {
       count: 0,
       userId: null,
+      platform: platform.toLowerCase(),
       source,
       createdAt: now,
       lastUsed: now,
@@ -204,7 +208,13 @@ async function verifyGoogleCredential(credential, env) {
 
   // Verify the token is for our app (get valid client IDs from env)
   const validClientIds = [];
+  // Extension client IDs (one per extension)
+  if (env.GOOGLE_CLIENT_ID_YOUTUBE) validClientIds.push(env.GOOGLE_CLIENT_ID_YOUTUBE);
+  if (env.GOOGLE_CLIENT_ID_INSTAGRAM) validClientIds.push(env.GOOGLE_CLIENT_ID_INSTAGRAM);
+  if (env.GOOGLE_CLIENT_ID_TIKTOK) validClientIds.push(env.GOOGLE_CLIENT_ID_TIKTOK);
+  // Legacy/generic extension client ID
   if (env.GOOGLE_CLIENT_ID_EXTENSION) validClientIds.push(env.GOOGLE_CLIENT_ID_EXTENSION);
+  // Web client ID
   if (env.GOOGLE_CLIENT_ID_WEB) validClientIds.push(env.GOOGLE_CLIENT_ID_WEB);
 
   // If no client IDs configured, skip validation (development mode)
@@ -300,23 +310,9 @@ async function handleGoogleAuth(request, env) {
   // Link device if provided and not already linked
   if (deviceId && isValidDeviceId(deviceId) && !user.deviceIds.includes(deviceId)) {
     user.deviceIds.push(deviceId);
-
-    // Check device usage
-    const device = await env.USAGE_STORE.get(`device:${deviceId}`, 'json');
-    if (device && !device.userId) {
-      if (isNewUser) {
-        // New user: subtract any downloads already used from their free credits
-        user.credits = Math.max(0, FREE_LIMIT - device.count);
-      } else {
-        // Existing user linking new device: add remaining free credits
-        const remainingFree = Math.max(0, FREE_LIMIT - device.count);
-        user.credits += remainingFree;
-      }
-
-      // Mark device as linked
-      device.userId = googleId;
-      await env.USAGE_STORE.put(`device:${deviceId}`, JSON.stringify(device));
-    }
+    // Note: We no longer merge device credits with account credits.
+    // Once signed in, the user's account credits are the single source of truth.
+    // Device-based credits are only for anonymous users.
   }
 
   user.lastLogin = now;
@@ -567,9 +563,9 @@ async function handleCreditsCheck(request, env) {
     return jsonResponse({ error: 'Invalid JSON body' }, 400);
   }
 
-  const { deviceId, token, credential } = body;
+  const { deviceId, token, credential, platform } = body;
 
-  // If authenticated, return user credits
+  // If authenticated, return user credits (shared across all platforms)
   if (token || credential) {
     const googleUser = await verifyGoogleAuth(token, credential, env);
     if (googleUser) {
@@ -584,12 +580,13 @@ async function handleCreditsCheck(request, env) {
     }
   }
 
-  // Anonymous user - check device usage
+  // Anonymous user - check device usage for specific platform
   if (!isValidDeviceId(deviceId)) {
     return jsonResponse({ error: 'Missing or invalid deviceId' }, 400);
   }
 
-  const usage = await checkUsage(env, deviceId);
+  // Default to 'default' if no platform specified (backwards compatibility)
+  const usage = await checkUsage(env, deviceId, platform || 'default');
 
   return jsonResponse({
     credits: usage.remaining,
@@ -652,7 +649,8 @@ async function handleTranscript(request, env, platform, urlValidator, apiEndpoin
       return jsonResponse({ error: 'Invalid or missing device ID' }, 400);
     }
 
-    const usage = await checkUsage(env, deviceId);
+    // Check usage for this specific platform (each extension gets 10 free credits)
+    const usage = await checkUsage(env, deviceId, platform);
     if (!usage.allowed) {
       return jsonResponse({
         error: 'limit_reached',
@@ -694,7 +692,8 @@ async function handleTranscript(request, env, platform, urlValidator, apiEndpoin
         credits: user.credits
       });
     } else {
-      const remaining = await incrementUsage(env, deviceId, source || 'extension');
+      // Increment usage for this specific platform
+      const remaining = await incrementUsage(env, deviceId, platform, source || 'extension');
 
       return jsonResponse({
         ...data,

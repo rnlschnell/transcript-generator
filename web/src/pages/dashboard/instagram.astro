@@ -1,0 +1,128 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import DownloadForm from '../../components/DownloadForm';
+---
+
+<DashboardLayout title="Instagram" activeSection="instagram">
+  <div class="dashboard-page">
+    <div class="page-header">
+      <div class="platform-badge instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="dashboard-title">Instagram Transcripts</h1>
+        <p class="dashboard-subtitle">Get transcripts from Instagram Reels and videos</p>
+      </div>
+    </div>
+
+    <div class="dashboard-card">
+      <DownloadForm platform="instagram" client:load />
+    </div>
+
+    <div class="tips-section">
+      <h3>Supported URL formats</h3>
+      <ul class="tips-list">
+        <li>instagram.com/reel/...</li>
+        <li>instagram.com/p/...</li>
+      </ul>
+    </div>
+  </div>
+</DashboardLayout>
+
+<style>
+  .dashboard-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .platform-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .platform-badge.instagram {
+    background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #ede9fe 100%);
+    color: #e11d48;
+  }
+
+  .dashboard-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .dashboard-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .dashboard-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tips-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .tips-section h3 {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .tips-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tips-list li {
+    background: var(--background-secondary);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .platform-badge {
+      width: 48px;
+      height: 48px;
+    }
+
+    .dashboard-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,1006 @@
+---
+interface Props {
+  title: string;
+  activeSection: 'youtube' | 'tiktok' | 'instagram' | 'account';
+}
+
+const { title, activeSection } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - TranscriptMagic</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Sign-In -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <!-- Auth Gate - shown to signed out users -->
+    <div class="auth-gate" id="authGate">
+      <div class="auth-gate-container">
+        <a href="/" class="auth-gate-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="8" width="20" height="16" rx="3" fill="currentColor" opacity="0.2"/>
+              <rect x="6" y="4" width="20" height="16" rx="3" fill="currentColor" opacity="0.4"/>
+              <rect x="10" y="0" width="20" height="16" rx="3" fill="currentColor"/>
+              <path d="M18 5L22 8L18 11V5Z" fill="#0f172a"/>
+            </svg>
+          </div>
+          <span class="logo-text">TranscriptMagic</span>
+        </a>
+
+        <div class="auth-gate-card">
+          <div class="auth-gate-header">
+            <h1>Welcome to your Dashboard</h1>
+            <p>Sign in to access your transcripts and manage your account</p>
+          </div>
+
+          <div class="auth-gate-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong>Transcript History</strong>
+                <span>Access all your past transcripts anytime</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                  <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong>Sync Across Devices</strong>
+                <span>Your credits sync with browser extensions</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <strong>Secure & Private</strong>
+                <span>Your data is encrypted and never shared</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-gate-cta">
+            <div id="authGateGoogleBtn"></div>
+            <p class="auth-gate-terms">
+              By signing in, you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+
+        <p class="auth-gate-note">
+          <strong>10 free credits</strong> when you sign up — no credit card required
+        </p>
+      </div>
+    </div>
+
+    <!-- Dashboard - shown to signed in users -->
+    <div class="dashboard-layout" id="dashboardLayout" style="display: none;">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="/" class="sidebar-logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="8" width="20" height="16" rx="3" fill="currentColor" opacity="0.2"/>
+                <rect x="6" y="4" width="20" height="16" rx="3" fill="currentColor" opacity="0.4"/>
+                <rect x="10" y="0" width="20" height="16" rx="3" fill="currentColor"/>
+                <path d="M18 5L22 8L18 11V5Z" fill="#0f172a"/>
+              </svg>
+            </div>
+            <span class="logo-text">TranscriptMagic</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <span class="nav-section-label">Platforms</span>
+            <a href="/dashboard/youtube" class={`nav-item ${activeSection === 'youtube' ? 'active' : ''}`}>
+              <span class="nav-icon youtube">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </span>
+              YouTube
+            </a>
+            <a href="/dashboard/tiktok" class={`nav-item ${activeSection === 'tiktok' ? 'active' : ''}`}>
+              <span class="nav-icon tiktok">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                </svg>
+              </span>
+              TikTok
+            </a>
+            <a href="/dashboard/instagram" class={`nav-item ${activeSection === 'instagram' ? 'active' : ''}`}>
+              <span class="nav-icon instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </span>
+              Instagram
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-label">Settings</span>
+            <a href="/dashboard/account" class={`nav-item ${activeSection === 'account' ? 'active' : ''}`}>
+              <span class="nav-icon account">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              Account
+            </a>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="credits-display" id="creditsDisplay">
+            <span class="credits-label">Credits</span>
+            <span class="credits-value" id="creditsValue">--</span>
+          </div>
+          <div class="sidebar-user" id="sidebarUser">
+            <img class="sidebar-user-avatar" id="sidebarUserAvatar" src="" alt="User" />
+            <div class="sidebar-user-info">
+              <span class="sidebar-user-name" id="sidebarUserName"></span>
+              <button class="sidebar-signout" id="sidebarSignOut">Sign Out</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Mobile Header -->
+      <header class="mobile-header">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="/" class="mobile-logo">
+          <div class="logo-mark small">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="8" width="20" height="16" rx="3" fill="currentColor" opacity="0.2"/>
+              <rect x="6" y="4" width="20" height="16" rx="3" fill="currentColor" opacity="0.4"/>
+              <rect x="10" y="0" width="20" height="16" rx="3" fill="currentColor"/>
+              <path d="M18 5L22 8L18 11V5Z" fill="#0f172a"/>
+            </svg>
+          </div>
+        </a>
+        <div class="mobile-credits" id="mobileCredits">
+          <span id="mobileCreditsValue">--</span> credits
+        </div>
+      </header>
+
+      <!-- Mobile Sidebar Overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Main Content -->
+      <main class="dashboard-main">
+        <slot />
+      </main>
+    </div>
+
+    <script>
+      const GOOGLE_CLIENT_ID = '600326666488-o6ic9vkh9lrc6jgchimlp41eh5kn529e.apps.googleusercontent.com';
+
+      // Decode JWT token
+      function decodeJwt(token: string) {
+        try {
+          const base64Url = token.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+            '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+          ).join(''));
+          return JSON.parse(jsonPayload);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      // Show auth gate (signed out state)
+      function showAuthGate() {
+        const authGate = document.getElementById('authGate');
+        const dashboardLayout = document.getElementById('dashboardLayout');
+
+        if (authGate) authGate.style.display = 'flex';
+        if (dashboardLayout) dashboardLayout.style.display = 'none';
+
+        // Initialize Google Sign-In button in auth gate
+        initAuthGateSignIn();
+      }
+
+      // Show dashboard (signed in state)
+      function showDashboard() {
+        const authGate = document.getElementById('authGate');
+        const dashboardLayout = document.getElementById('dashboardLayout');
+
+        if (authGate) authGate.style.display = 'none';
+        if (dashboardLayout) dashboardLayout.style.display = 'flex';
+      }
+
+      // Initialize Google Sign-In for auth gate
+      function initAuthGateSignIn() {
+        if (typeof google === 'undefined' || !google.accounts) {
+          // Wait for Google Sign-In to load
+          setTimeout(initAuthGateSignIn, 100);
+          return;
+        }
+
+        google.accounts.id.initialize({
+          client_id: GOOGLE_CLIENT_ID,
+          callback: handleAuthGateSignIn,
+          auto_select: false,
+        });
+
+        google.accounts.id.renderButton(
+          document.getElementById('authGateGoogleBtn'),
+          {
+            theme: 'outline',
+            size: 'large',
+            width: 300,
+            text: 'continue_with',
+            shape: 'rectangular',
+          }
+        );
+      }
+
+      // Handle sign-in from auth gate
+      async function handleAuthGateSignIn(response: { credential: string }) {
+        const credential = response.credential;
+        const decoded = decodeJwt(credential);
+
+        if (!decoded) {
+          console.error('Failed to decode credential');
+          return;
+        }
+
+        const user = {
+          email: decoded.email,
+          name: decoded.name,
+          picture: decoded.picture,
+        };
+
+        // Save user and credential
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('googleCredential', credential);
+
+        // Generate device ID if not exists
+        if (!localStorage.getItem('deviceId')) {
+          localStorage.setItem('deviceId', crypto.randomUUID());
+        }
+
+        // Show dashboard and initialize
+        showDashboard();
+        updateSidebarUser(user);
+        fetchCredits();
+        initMobileMenu();
+
+        // Sign out handler
+        document.getElementById('sidebarSignOut')?.addEventListener('click', handleSignOut);
+      }
+
+      // Update sidebar with user info
+      function updateSidebarUser(user: { name: string; picture: string; email: string }) {
+        const avatar = document.getElementById('sidebarUserAvatar') as HTMLImageElement;
+        const name = document.getElementById('sidebarUserName');
+
+        if (avatar) avatar.src = user.picture;
+        if (name) name.textContent = user.name;
+      }
+
+      // Fetch and display credits
+      async function fetchCredits() {
+        const storedUser = localStorage.getItem('user');
+        const credential = localStorage.getItem('googleCredential');
+        if (!storedUser || !credential) return;
+
+        try {
+          const deviceId = localStorage.getItem('deviceId');
+
+          const response = await fetch('https://api.transcriptmagic.com/credits', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              credential,
+              deviceId
+            })
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            // Only use credits if authenticated
+            if (data.authenticated && typeof data.credits === 'number') {
+              const creditsValue = document.getElementById('creditsValue');
+              const mobileCreditsValue = document.getElementById('mobileCreditsValue');
+
+              if (creditsValue) creditsValue.textContent = String(data.credits);
+              if (mobileCreditsValue) mobileCreditsValue.textContent = String(data.credits);
+
+              // Store for other components
+              localStorage.setItem('userCredits', String(data.credits));
+              window.dispatchEvent(new CustomEvent('creditsUpdated', { detail: data.credits }));
+            }
+          }
+        } catch (e) {
+          console.error('Failed to fetch credits:', e);
+        }
+      }
+
+      // Handle sign out
+      function handleSignOut() {
+        localStorage.removeItem('user');
+        localStorage.removeItem('userCredits');
+        localStorage.removeItem('googleCredential');
+
+        if (typeof google !== 'undefined' && google.accounts) {
+          google.accounts.id.disableAutoSelect();
+        }
+
+        // Redirect to home page
+        window.location.href = '/';
+      }
+
+      // Mobile menu toggle
+      function initMobileMenu() {
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        menuBtn?.addEventListener('click', () => {
+          sidebar?.classList.toggle('open');
+          overlay?.classList.toggle('open');
+          menuBtn.classList.toggle('active');
+        });
+
+        overlay?.addEventListener('click', () => {
+          sidebar?.classList.remove('open');
+          overlay.classList.remove('open');
+          menuBtn?.classList.remove('active');
+        });
+      }
+
+      // Initialize - runs immediately, not on load
+      function init() {
+        const storedUser = localStorage.getItem('user');
+
+        if (!storedUser) {
+          // Show auth gate for signed out users
+          showAuthGate();
+          return;
+        }
+
+        try {
+          const user = JSON.parse(storedUser);
+          // Show dashboard for signed in users
+          showDashboard();
+          updateSidebarUser(user);
+          fetchCredits();
+        } catch (e) {
+          localStorage.removeItem('user');
+          showAuthGate();
+          return;
+        }
+
+        // Sign out handler
+        document.getElementById('sidebarSignOut')?.addEventListener('click', handleSignOut);
+
+        // Mobile menu
+        initMobileMenu();
+
+        // Listen for credit updates
+        window.addEventListener('creditsUpdated', (e: CustomEvent) => {
+          const creditsValue = document.getElementById('creditsValue');
+          const mobileCreditsValue = document.getElementById('mobileCreditsValue');
+          if (creditsValue) creditsValue.textContent = String(e.detail);
+          if (mobileCreditsValue) mobileCreditsValue.textContent = String(e.detail);
+        });
+      }
+
+      // Run init immediately when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    </script>
+
+    <style is:global>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --slate-950: #0a0f1a;
+        --slate-900: #0f172a;
+        --slate-800: #1e293b;
+        --slate-700: #334155;
+        --slate-600: #475569;
+        --slate-500: #64748b;
+        --slate-400: #94a3b8;
+        --slate-300: #cbd5e1;
+        --slate-200: #e2e8f0;
+        --slate-100: #f1f5f9;
+        --slate-50: #f8fafc;
+
+        --blue-700: #1d4ed8;
+        --blue-600: #2563eb;
+        --blue-500: #3b82f6;
+        --blue-400: #60a5fa;
+        --blue-100: #dbeafe;
+        --blue-50: #eff6ff;
+
+        --primary: var(--blue-600);
+        --primary-hover: var(--blue-700);
+        --primary-muted: rgba(37, 99, 235, 0.1);
+        --text-primary: var(--slate-900);
+        --text-secondary: var(--slate-600);
+        --text-muted: var(--slate-400);
+        --border: var(--slate-200);
+        --border-subtle: var(--slate-100);
+        --background: #ffffff;
+        --background-secondary: var(--slate-50);
+        --success: #10b981;
+        --error: #ef4444;
+
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+        --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+        --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+
+        --font-display: 'Space Grotesk', sans-serif;
+        --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+        --sidebar-width: 260px;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--background-secondary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      /* Dashboard Layout */
+      .dashboard-layout {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--sidebar-width);
+        background: var(--background);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+      }
+
+      .sidebar-header {
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .sidebar-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--slate-900);
+        letter-spacing: -0.02em;
+      }
+
+      .logo-mark {
+        width: 28px;
+        height: 28px;
+        color: var(--primary);
+        transition: transform 0.2s ease;
+      }
+
+      .logo-mark.small {
+        width: 24px;
+        height: 24px;
+      }
+
+      .sidebar-logo:hover .logo-mark {
+        transform: scale(1.05) rotate(-3deg);
+      }
+
+      .sidebar-nav {
+        flex: 1;
+        padding: 1.5rem 1rem;
+        overflow-y: auto;
+      }
+
+      .nav-section {
+        margin-bottom: 2rem;
+      }
+
+      .nav-section-label {
+        display: block;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        padding: 0 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        border-radius: var(--radius-md);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: all 0.15s ease;
+        margin-bottom: 0.25rem;
+      }
+
+      .nav-item:hover {
+        background: var(--background-secondary);
+        color: var(--text-primary);
+      }
+
+      .nav-item.active {
+        background: var(--primary-muted);
+        color: var(--primary);
+      }
+
+      .nav-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-sm);
+        flex-shrink: 0;
+      }
+
+      .nav-icon.youtube {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+
+      .nav-icon.tiktok {
+        background: #0f172a;
+        color: white;
+      }
+
+      .nav-icon.instagram {
+        background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #ede9fe 100%);
+        color: #e11d48;
+      }
+
+      .nav-icon.account {
+        background: var(--slate-100);
+        color: var(--slate-600);
+      }
+
+      .nav-item.active .nav-icon.account {
+        background: var(--blue-100);
+        color: var(--primary);
+      }
+
+      .sidebar-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .credits-display {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        background: var(--background-secondary);
+        border-radius: var(--radius-md);
+        margin-bottom: 1rem;
+      }
+
+      .credits-label {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+      }
+
+      .credits-value {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .sidebar-user {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .sidebar-user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+      }
+
+      .sidebar-user-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .sidebar-user-name {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .sidebar-signout {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-family: inherit;
+        transition: color 0.2s;
+      }
+
+      .sidebar-signout:hover {
+        color: var(--error);
+      }
+
+      /* Mobile Header */
+      .mobile-header {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: var(--background);
+        border-bottom: 1px solid var(--border);
+        padding: 0 1rem;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 90;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      .mobile-menu-btn span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--slate-900);
+        border-radius: 1px;
+        transition: all 0.2s;
+      }
+
+      .mobile-menu-btn.active span:first-child {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+
+      .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-btn.active span:last-child {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+
+      .mobile-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .mobile-credits {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+      }
+
+      .mobile-credits span {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+
+      .sidebar-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Main Content */
+      .dashboard-main {
+        flex: 1;
+        margin-left: var(--sidebar-width);
+        padding: 2rem;
+        min-height: 100vh;
+      }
+
+      /* Utility classes */
+      .dashboard-card {
+        background: var(--background);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .dashboard-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .dashboard-subtitle {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Auth Gate - Shown to signed out users */
+      .auth-gate {
+        display: none;
+        min-height: 100vh;
+        background: linear-gradient(135deg, var(--slate-50) 0%, var(--blue-50) 100%);
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .auth-gate-container {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .auth-gate-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--slate-900);
+        letter-spacing: -0.02em;
+      }
+
+      .auth-gate-logo .logo-mark {
+        width: 36px;
+        height: 36px;
+        color: var(--primary);
+      }
+
+      .auth-gate-card {
+        background: var(--background);
+        border-radius: var(--radius-xl);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-lg);
+        width: 100%;
+        border: 1px solid var(--border);
+      }
+
+      .auth-gate-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .auth-gate-header h1 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .auth-gate-header p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+      }
+
+      .auth-gate-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--background-secondary);
+        border-radius: var(--radius-lg);
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.875rem;
+      }
+
+      .feature-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--primary-muted);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        flex-shrink: 0;
+      }
+
+      .feature-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+      }
+
+      .feature-text strong {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .feature-text span {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+      }
+
+      .auth-gate-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .auth-gate-cta > div {
+        display: flex;
+        justify-content: center;
+      }
+
+      .auth-gate-terms {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .auth-gate-terms a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .auth-gate-terms a:hover {
+        text-decoration: underline;
+      }
+
+      .auth-gate-note {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      .auth-gate-note strong {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+        }
+
+        .sidebar.open {
+          transform: translateX(0);
+        }
+
+        .mobile-header {
+          display: flex;
+        }
+
+        .sidebar-overlay {
+          display: block;
+        }
+
+        .dashboard-main {
+          margin-left: 0;
+          padding: 1rem;
+          padding-top: calc(56px + 1rem);
+        }
+
+        .dashboard-card {
+          padding: 1.5rem;
+        }
+
+        .auth-gate {
+          padding: 1.5rem;
+        }
+
+        .auth-gate-card {
+          padding: 1.5rem;
+        }
+
+        .auth-gate-header h1 {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </body>
+</html>

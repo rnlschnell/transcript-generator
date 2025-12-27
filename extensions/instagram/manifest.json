@@ -21,6 +21,11 @@
     "activeTab",
     "tabs",
     "clipboardWrite",
-    "storage"
-  ]
+    "storage",
+    "identity"
+  ],
+  "oauth2": {
+    "client_id": "600326666488-9ikfb3hmsvn80j14t0b0dbtqnme2lakh.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
 }

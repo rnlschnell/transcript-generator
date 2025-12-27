@@ -118,6 +118,7 @@ body {
   background: var(--background-secondary);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
+  width: 100%;
 }
 
 .user-info {
@@ -533,6 +534,7 @@ input[type="url"]::placeholder {
 .sign-in-section {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 /* Google sign-in button */

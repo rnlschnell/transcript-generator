@@ -1,0 +1,128 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import DownloadForm from '../../components/DownloadForm';
+---
+
+<DashboardLayout title="TikTok" activeSection="tiktok">
+  <div class="dashboard-page">
+    <div class="page-header">
+      <div class="platform-badge tiktok">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="dashboard-title">TikTok Transcripts</h1>
+        <p class="dashboard-subtitle">Get transcripts from any TikTok video</p>
+      </div>
+    </div>
+
+    <div class="dashboard-card">
+      <DownloadForm platform="tiktok" client:load />
+    </div>
+
+    <div class="tips-section">
+      <h3>Supported URL formats</h3>
+      <ul class="tips-list">
+        <li>tiktok.com/@user/video/...</li>
+        <li>vm.tiktok.com/...</li>
+      </ul>
+    </div>
+  </div>
+</DashboardLayout>
+
+<style>
+  .dashboard-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .platform-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .platform-badge.tiktok {
+    background: #0f172a;
+    color: white;
+  }
+
+  .dashboard-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .dashboard-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .dashboard-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tips-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .tips-section h3 {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .tips-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tips-list li {
+    background: var(--background-secondary);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .platform-badge {
+      width: 48px;
+      height: 48px;
+    }
+
+    .dashboard-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

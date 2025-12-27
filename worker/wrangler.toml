@@ -10,7 +10,9 @@ compatibility_date = "2024-01-01"
 #   SCRAPECREATORS_API_KEY    - API key for ScrapeCreators API
 #
 # Google OAuth (optional - skip validation if not set):
-#   GOOGLE_CLIENT_ID_EXTENSION - Google OAuth client ID for Chrome extension
+#   GOOGLE_CLIENT_ID_YOUTUBE   - Chrome extension client ID for YouTube
+#   GOOGLE_CLIENT_ID_INSTAGRAM - Chrome extension client ID for Instagram
+#   GOOGLE_CLIENT_ID_TIKTOK    - Chrome extension client ID for TikTok
 #   GOOGLE_CLIENT_ID_WEB       - Google OAuth client ID for web app
 #
 # Lemon Squeezy (required for payments):
@@ -31,4 +33,5 @@ compatibility_date = "2024-01-01"
 
 [[kv_namespaces]]
 binding = "USAGE_STORE"
-id = "3971eda58b2c45d28e8352f5142a4e18"
+id = "cd269573f2fe4d1b98e2ec140dbc6735"
+# Namespace name in Cloudflare: TRANSCRIPT_STORE
