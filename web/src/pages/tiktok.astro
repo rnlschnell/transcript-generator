@@ -24,21 +24,6 @@ import DownloadForm from '../components/DownloadForm';
         </div>
       </div>
 
-      <!-- Supported Formats -->
-      <div class="formats-section">
-        <h2>Supported TikTok URL Formats</h2>
-        <div class="formats-grid">
-          <div class="format-item">
-            <code>tiktok.com/@user/video/...</code>
-            <span>Full video URLs</span>
-          </div>
-          <div class="format-item">
-            <code>vm.tiktok.com/...</code>
-            <span>Short share links</span>
-          </div>
-        </div>
-      </div>
-
       <!-- Features -->
       <div class="features-section">
         <h2>Why Use Our TikTok Transcriber?</h2>
@@ -99,7 +84,7 @@ import DownloadForm from '../components/DownloadForm';
   }
 
   .platform-page .container {
-    max-width: 800px;
+    max-width: 900px;
   }
 
   .platform-header {
@@ -147,44 +132,6 @@ import DownloadForm from '../components/DownloadForm';
     padding: 2rem;
     margin-bottom: 3rem;
     box-shadow: var(--shadow-lg);
-  }
-
-  .formats-section {
-    margin-bottom: 3rem;
-  }
-
-  .formats-section h2 {
-    font-size: 1.25rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .formats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .format-item {
-    background: var(--background-secondary);
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    text-align: center;
-  }
-
-  .format-item code {
-    display: block;
-    font-size: 0.8125rem;
-    color: var(--text-primary);
-    font-family: 'SF Mono', monospace;
-    margin-bottom: 0.5rem;
-  }
-
-  .format-item span {
-    font-size: 0.8125rem;
-    color: var(--text-muted);
   }
 
   .features-section {
@@ -257,7 +204,6 @@ import DownloadForm from '../components/DownloadForm';
   }
 
   @media (max-width: 768px) {
-    .formats-grid,
     .features-grid {
       grid-template-columns: 1fr;
     }

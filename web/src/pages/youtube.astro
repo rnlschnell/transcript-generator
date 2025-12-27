@@ -24,25 +24,6 @@ import DownloadForm from '../components/DownloadForm';
         </div>
       </div>
 
-      <!-- Supported Formats -->
-      <div class="formats-section">
-        <h2>Supported YouTube URL Formats</h2>
-        <div class="formats-grid">
-          <div class="format-item">
-            <code>youtube.com/watch?v=...</code>
-            <span>Regular videos</span>
-          </div>
-          <div class="format-item">
-            <code>youtu.be/...</code>
-            <span>Short links</span>
-          </div>
-          <div class="format-item">
-            <code>youtube.com/shorts/...</code>
-            <span>YouTube Shorts</span>
-          </div>
-        </div>
-      </div>
-
       <!-- Features -->
       <div class="features-section">
         <h2>Why Use Our YouTube Transcriber?</h2>
@@ -103,7 +84,7 @@ import DownloadForm from '../components/DownloadForm';
   }
 
   .platform-page .container {
-    max-width: 800px;
+    max-width: 900px;
   }
 
   .platform-header {
@@ -151,42 +132,6 @@ import DownloadForm from '../components/DownloadForm';
     padding: 2rem;
     margin-bottom: 3rem;
     box-shadow: var(--shadow-lg);
-  }
-
-  .formats-section {
-    margin-bottom: 3rem;
-  }
-
-  .formats-section h2 {
-    font-size: 1.25rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .formats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .format-item {
-    background: var(--background-secondary);
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    text-align: center;
-  }
-
-  .format-item code {
-    display: block;
-    font-size: 0.8125rem;
-    color: var(--text-primary);
-    font-family: 'SF Mono', monospace;
-    margin-bottom: 0.5rem;
-  }
-
-  .format-item span {
-    font-size: 0.8125rem;
-    color: var(--text-muted);
   }
 
   .features-section {
@@ -259,7 +204,6 @@ import DownloadForm from '../components/DownloadForm';
   }
 
   @media (max-width: 768px) {
-    .formats-grid,
     .features-grid {
       grid-template-columns: 1fr;
     }

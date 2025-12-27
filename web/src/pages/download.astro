@@ -55,26 +55,6 @@ import DownloadForm from '../components/DownloadForm';
         </div>
       </div>
 
-      <!-- Supported Formats -->
-      <div class="formats-section">
-        <div class="formats-card">
-          <div class="formats-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-            </svg>
-          </div>
-          <div class="formats-content">
-            <h3>Supported platforms</h3>
-            <div class="formats-list">
-              <code>https://www.youtube.com/watch?v=...</code>
-              <code>https://www.tiktok.com/@username/video/...</code>
-              <code>https://www.instagram.com/reel/...</code>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Extension Promo -->
       <div class="extension-promo">
         <div class="promo-content">
@@ -100,7 +80,7 @@ import DownloadForm from '../components/DownloadForm';
   }
 
   .download-page .container {
-    max-width: 720px;
+    max-width: 900px;
   }
 
   /* Download Card */
@@ -192,61 +172,6 @@ import DownloadForm from '../components/DownloadForm';
     line-height: 1.5;
   }
 
-  /* Formats */
-  .formats-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .formats-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    background: var(--background-secondary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle);
-  }
-
-  .formats-icon {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--primary-muted);
-    border-radius: var(--radius-md);
-    flex-shrink: 0;
-  }
-
-  .formats-icon svg {
-    width: 22px;
-    height: 22px;
-    color: var(--primary);
-  }
-
-  .formats-content h3 {
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .formats-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .formats-list code {
-    display: block;
-    background: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.8125rem;
-    color: var(--text-secondary);
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    border: 1px solid var(--border-subtle);
-  }
-
   /* Extension Promo */
   .extension-promo {
     display: flex;
@@ -302,10 +227,6 @@ import DownloadForm from '../components/DownloadForm';
     .instruction-icon {
       margin-bottom: 0;
       flex-shrink: 0;
-    }
-
-    .formats-card {
-      flex-direction: column;
     }
 
     .extension-promo {
